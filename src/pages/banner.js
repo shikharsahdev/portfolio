@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Banner() {
+function Banner({handleShowEaster}) {
   const words = ["work", "perform", "engage", "grow"];
   const [highlightText, setHighlightText] = useState("");
   useEffect(() => {
@@ -14,7 +14,6 @@ function Banner() {
       typer = changeTyper ? !typer : typer;
       changeTyper = !changeTyper;
       const setText = (text) => {
-        console.log(typer, text);
         setHighlightText(text + (typer ? "|" : ""));
       }
       if (letter === 0 && change === - 1) {
@@ -36,6 +35,10 @@ function Banner() {
       setText(words[word].substring(0, letter));
     }, 150);
   }, []);
+  const abc=() => {
+    console.log("called")
+    handleShowEaster()
+  }
   return (
     <div className="container banner">
       <span className="h text">
@@ -45,7 +48,7 @@ function Banner() {
         Lorem ipsum dolor sit amet, consectetur adipiscing <b>elit</b>, <b>sed do eiusmod</b> tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  
       </span>
       <span className="h foottext">
-        <img src={process.env.PUBLIC_URL + '/me.jpeg'} />shikhar<span className="ht">.</span>sah.dev
+        <img src={process.env.PUBLIC_URL + '/me.jpeg'} onClick={abc}/>shikhar<span className="ht">.</span>sah.dev
       </span>
     </div>
   )
