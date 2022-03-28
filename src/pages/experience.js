@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const experienceData = [
   {
     title: "Frontend Lead @ Goldcast",
-    description: "I had been freelancing throughout college, worked with 2 promising startups Dhodu and Mozzo in my second year giving me immense exposure. I loved to solve problems and provide end to end solutions, and getting to see people use and appreciate them gave me a lot of motivation and drive to learn and build more.",
+    description: "I had been freelancing throughout college, worked with 2 promising startups Dhodu and Mozzo in my second year giving me immense exposure. I loved to solve problems and provide end to end solutions, and getting to see people use and appreciate them gave me a lot of motivation and drive to learn and build more. \n I had been freelancing throughout college, worked with 2 promising startups Dhodu and Mozzo in my second year giving me immense exposure. I loved to solve problems and provide end to end solutions, and getting to see people use and appreciate them gave me a lot of motivation and drive to learn and build more.",
     image: process.env.PUBLIC_URL + '/goldcast.png'
   },
   {
@@ -29,7 +29,7 @@ function Experience() {
               {data.title}
             </div>
             <p>
-              {data.description}
+              {data.description.split('\n').map((item) => (<p>{item}</p>))}
             </p>
           </div>
           <img src={data.image} />

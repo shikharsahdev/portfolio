@@ -5,10 +5,13 @@ function Intro() {
     <div className="container intro">
       <div class="text">
         <div class="h">
-          Hi, I'm Shikhar and I love building aesthetically pleasing solutions for digital platforms
+          <i>Hi, I'm Shikhar</i>
+        </div>
+        <div class="subtext">
+          I love building aesthetically pleasing solutions for digital platforms
         </div>
         <p>
-          Born and raised in Delhi, India and currently living in Bangalore, I am an experience focused Frontend Engineer with a passion for building beautiful, performant, and intuitive user experiences.
+          Born and raised in Delhi, India and currently <b>living in Bangalore</b>, I am an <b>experience focused Frontend Engineer</b> with a passion for building beautiful, performant, and intuitive user experiences.
         </p>
         <p>
           My journey began at the age of 14 when I was introduced to Macromedia Flash. I quickly fell in love with the technology and quickly began to learn how to create animations, and even games! 
@@ -19,7 +22,7 @@ function Intro() {
           Went on to make my first professional website at the age of 16 and be the President of my school's highly reputed Computer Club (XINO) in the last year of high school.
         </p>
         <p>
-          With the clear aim to stay close to technology and build more complex solutions working on scale I joined Delhi Technological University in 2014 to pursue Computer Science Engineering.
+          With the clear aim to stay close to technology and build more complex solutions working on scale I joined <b>Delhi Technological University in 2014 to pursue Computer Science Engineering</b>.
         </p>
         <p>
           I had been freelancing throughout college,

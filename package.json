@@ -1,6 +1,5 @@
 {
   "name": "portfolio",
-  "homepage": "https://shikharsahdev.github.io/portfolio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,7 +14,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && rm -rf node_modules/.cache/gh-pages",
     "deploy": "gh-pages -b deployment -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
