@@ -13,7 +13,7 @@ function App() {
   const handleShowEaster = () => {
     setShowEaster(true);
     setTimeout(()=>{
-      // setShowEaster(false);
+      setShowEaster(false);
     }, 7000);
   }
 
