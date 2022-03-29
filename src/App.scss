@@ -85,12 +85,13 @@ body,html {
       }
       p {
         line-height: 32px;
-        font-size: 1.4em;
+        font-size: 1.2em;
       }
     }
     img {
       flex:1;
-      max-width: min(60vw, 90vh);
+      max-width: 50%;
+      margin-right: 32px;
       position: sticky;
       top: 10vh;
       border-radius: 8px;
@@ -101,7 +102,7 @@ body,html {
     }
     img:hover {
       will-change: transform;
-      transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(1.9447deg) rotateY(9.9982deg) rotateZ(0deg) skew(0deg, 0deg);
+      transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(-11.0553deg) rotateY(10.9982deg) rotateZ(2deg) skew(0deg, 0deg) scale(1.1);
       transform-style: preserve-3d;
     }
   }
@@ -141,13 +142,16 @@ body,html {
   }
 }
 
-@media only screen and (max-width: 660px) {
+@media only screen and (max-width: 1024px) {
   .container {
     padding: 24px;
   }
   .banner {
     .text {
-      font-size: 3em;
+      font-size: 2.3em;
+    }
+    .subtext {
+      font-size: 1em;
     }
     .foottext {
       font-size: 1.4em;
@@ -1485,7 +1489,7 @@ body,html {
 
 
 
-@media only screen and (max-width: 660px) {
+@media only screen and (max-width: 1024px) {
   .easter {
     height: 100vw;
     width: 100vh;
