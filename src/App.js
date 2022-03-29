@@ -34,25 +34,28 @@ function App() {
   }, [typed]);
   return (
     <div className="App">
-    <div className="firefly"></div>
-    <div className="firefly"></div>
-    <div className="firefly"></div>
-    <div className="firefly"></div>
-    <div className="firefly"></div>
-    <div className="firefly"></div>
-    <div className="firefly"></div>
-    <div className="firefly"></div>
-    <div className="firefly"></div>
-    <div className="firefly"></div>
-    <div className="firefly"></div>
-    <div className="firefly"></div>
-    <div className="firefly"></div>
-    <div className="firefly"></div>
-    <div className="firefly"></div>
+      <div className="fireflies">
+        <div className="firefly"></div>
+        <div className="firefly"></div>
+        <div className="firefly"></div>
+        <div className="firefly"></div>
+        <div className="firefly"></div>
+        <div className="firefly"></div>
+        <div className="firefly"></div>
+        <div className="firefly"></div>
+        <div className="firefly"></div>
+        <div className="firefly"></div>
+        <div className="firefly"></div>
+        <div className="firefly"></div>
+        <div className="firefly"></div>
+        <div className="firefly"></div>
+        <div className="firefly"></div>
+      </div>
       {showEaster ? <Easter /> : ""}
       <Banner handleShowEaster={handleShowEaster}/>
       <Experience />
       <Intro />
+
     </div>
   );
 }

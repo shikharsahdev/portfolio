@@ -27,6 +27,7 @@ body,html {
   justify-content: center;
   overflow: hidden;
   flex-direction: column;
+  position: relative;
 
   .text {
     font-size: 5em;
@@ -212,6 +213,13 @@ body,html {
 
 // fireflies
 
+.fireflies {
+  position:fixed;
+  top: 0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+}
 
 .firefly {
   position: fixed;
@@ -1459,9 +1467,20 @@ body,html {
 
 .easterContainer {
   display: grid;
-  grid-template-columns: repeat(10, 200px);
-  grid-template-rows: repeat(6, 230px);
-  transform: translate(-3%, -4%);
+  grid-template-columns: repeat(10, 100px);
+  grid-template-rows: repeat(6, 115px);
+  transform: translate(-3%, -10%) scale(2.3);
+  transform-origin: top left;
+  animation: zoomer 10s infinite;
+}
+
+@keyframes zoomer {
+  0% {
+    transform: translate(-3%, -10%) scale(2.3);
+  }
+  50% {
+    transform: translate(-3%, -10%) scale(3.2);
+  }
 }
 
 
@@ -1489,10 +1508,11 @@ body,html {
 }
 
 .shape {
-  width: 200px;
-  height: 230px;
-  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  width: 100px;
+  height: 115px;
+  // -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  // clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  clip-path: url(#hexagonClip);
 }
 .shape:nth-child(11) {
   transform: translate(-50%, -25%);
