@@ -196,6 +196,12 @@ body,html {
   }
   .intro {
     flex-direction: column-reverse;
+    .h {
+      font-size: 1.3em;
+    }
+    .subtext {
+      font-size: 1.8em;
+    }
     .text {
       min-width: auto;
       max-width: auto;

@@ -5,6 +5,8 @@ import Easter from './pages/easter';
 import Experience from './pages/experience';
 import Intro from './pages/intro';
 
+let timeout = null;
+
 function App() {
   const [typed, setTyped] = useState(0);
   const [showEaster, setShowEaster] = useState(false);
@@ -12,7 +14,14 @@ function App() {
 
   const handleShowEaster = () => {
     setShowEaster(true);
-    setTimeout(()=>{
+    if (timeout) {
+      try {
+        clearTimeout(timeout);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    timeout = setTimeout(()=>{
       setShowEaster(false);
     }, 7000);
   }
