@@ -1,72 +1,69 @@
-import { useEffect, useState } from 'react';
 import './App.scss';
-import Banner from './pages/banner';
-import Easter from './pages/easter';
-import Experience from './pages/experience';
-import Intro from './pages/intro';
-
-let timeout = null;
 
 function App() {
-  const [typed, setTyped] = useState(0);
-  const [showEaster, setShowEaster] = useState(false);
-  const name = "SHIKHAR";
-
-  const handleShowEaster = () => {
-    setShowEaster(true);
-    if (timeout) {
-      try {
-        clearTimeout(timeout);
-      } catch (e) {
-        console.log(e);
-      }
+  const keyExperiences = [
+    {
+      heading: 'Indian Council of Medical Research & All India Institute of Medical Sciences',
+      subheading: 'Consultant & Engineer',
+      text: 'I had the opportunity to work with these esteemed institutions, contributing to projects aimed at improving healthcare through technology. It was a humbling experience to play a part in such impactful work wherein, I helped build solutions to introduce digitizaton of patient enrolment in Trauma centres under the guidance of Dr. Amit Gupta.',
+      dates: 'March 2016 - Jun 2018'
+    },
+    {
+      heading: 'Samsung R&D Institute, Bengaluru',
+      subheading: 'Figuring out as a Software Engineer',
+      text: 'Right out of college. It was a significant milestone, but it also taught me a valuable lesson. I realized that the corporate world, while stable and predictable, wasn\'t where I felt most alive. The work felt monotonous, and I yearned for more significant impact and creative freedom. During those times, I was eager to leave as soon as my bond was over, primarily due to financial pressures at home. It was a challenging period, but it fueled my determination to find a path that aligned with my passion and values.',
+      dates: 'July 2018 - August 2019'
+    },
+    {
+      heading: 'Shipsy',
+      subheading: 'Full Stack Engineer',
+      text: 'At Shipsy, I wore many hats as a full-stack engineer, helping shape the company\'s technological landscape. It was a journey filled with learning and growth.',
+      dates: 'September 2019 - August 2020'
+    },
+    {
+      heading: 'Goldcast',
+      subheading: 'Member Founding Team, Tech Lead',
+      text: 'Joining Goldcast as its second full-time employee was a turning point. I\'ve been fortunate to be part of a team that went from zero customers to a thriving enterprise generating over $7 million in revenue. The journey continues to be an amazing learning experience.',
+      dates: 'August 2020 - Present'
     }
-    timeout = setTimeout(()=>{
-      setShowEaster(false);
-    }, 7000);
-  }
-
-  useEffect(() => {
-    document.onkeyup = (e) => {
-      console.log(e.code, `Key${name[typed]}`, typed);
-      if (e.code === `Key${name[typed]}`) {
-        setTyped(typed + 1);
-        if (typed === name.length - 1) {
-          handleShowEaster();
-          setTyped(0);
-        }
-      } else {
-        setTyped(0);
-        console.log("fail", typed)
-      }
-    };
-  }, [typed]);
+  ];
+  
   return (
-    <div className="App">
-      <div className="fireflies">
-        <div className="firefly"></div>
-        <div className="firefly"></div>
-        <div className="firefly"></div>
-        <div className="firefly"></div>
-        <div className="firefly"></div>
-        <div className="firefly"></div>
-        <div className="firefly"></div>
-        <div className="firefly"></div>
-        <div className="firefly"></div>
-        <div className="firefly"></div>
-        <div className="firefly"></div>
-        <div className="firefly"></div>
-        <div className="firefly"></div>
-        <div className="firefly"></div>
-        <div className="firefly"></div>
-      </div>
-      {showEaster ? <Easter /> : ""}
-      <Banner handleShowEaster={handleShowEaster}/>
-      <Experience />
-      <Intro />
-
+  <div className='bg-stone-950 text-stone-400 flex flex-col items-center max-w-screen'>
+      <section className='w-[100vw] min-h-screen max-w-5xl box-border p-8 py-16 flex flex-col justify-between md:py-24'>
+        <div  className='flex-1 relative'>
+          <span className='sticky top-16 md:top-24 block'>
+            <h1 className='text-sky-400 text-5xl font-light md:text-8xl'>Shikhar Sahdev</h1>
+            <h2 className='my-4 text-stone-50 text-2xl'>Bridging Design, Engineering, and Innovation to Create User-Centric Solutions</h2>
+          </span>
+        </div>
+        <p className='my-4 text-xl text-stone-300'>Welcome to my digital space! I'm Shikhar, an innovator who thrives at the intersection of design and engineering. With a passion for creating user-centric solutions, I'm here to share my experiences, provide mentorship, and collaborate on innovative projects!</p>
+      </section>
+      <section className='max-w-5xl p-8'>
+        <p className='text-lg my-4'>
+          I'm truly humbled by the journey I've been on. It all started in the 8th grade when I dipped my toes into web development as a hobby. Little did I know that this hobby would evolve into a lifelong passion for design and engineering.
+        </p>
+        <p className='text-lg'>
+          From those early days, I've had the privilege of collaborating with some incredible organizations and startups.
+        </p>
+        {
+          keyExperiences.reverse().map(experience => (
+            <div className='my-24 flex flex-col gap-2'>
+              <span>
+                <h2 className='text-3xl text-sky-400'>{experience.heading}</h2>
+                <h3 className='text-stone-50 text-xl mb-4'>{experience.subheading}</h3>
+                <p className='text-sky-200'>{experience.dates}</p>
+              </span>
+              <p className='text-xl'>{experience.text}</p>
+            </div>
+          ))
+        }
+        <p>
+          I invite you to explore my work, connect with me for mentorship, or collaborate on exciting ventures. Together, we can make technology more accessible and user-friendly.
+        </p>
+      </section>
     </div>
-  );
+  );  
 }
 
 export default App;
