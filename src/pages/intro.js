@@ -15,7 +15,7 @@ function Intro() {
 
   return (
     <section className='bg-[--primary] text-[--accent] p-8 py-16 flex h-screen w-screen justify-center items-center md:py-24 header'>
-      <h1 className="font-serif uppercase text-3xl font-bold whitespace-nowrap md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl">{ messages[messageIndex % messages.length] }</h1>
+      <h1 className="uppercase text-3xl font-bold whitespace-nowrap md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl">{ messages[messageIndex % messages.length] }</h1>
     </section>
   );  
 }
