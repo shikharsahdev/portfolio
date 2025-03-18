@@ -5,8 +5,8 @@ html,body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  /* --prussian-blue: #002642ff;
+/* 
+  --prussian-blue: #002642ff;
   --bittersweet: #ff6663ff;
   --citrine: #b9b620;
   --white: #ffffffff;
@@ -16,10 +16,10 @@ html,body {
   --secondary: var(--bittersweet);
   --accent: var(--citrine);
   --highlight: var(--folly);
-  --background: var(--white);
+  --background: var(--white); */
 
 
-  --primary: rgb(25, 41, 40);
+  /* --primary: rgb(25, 41, 40);
   --secondary: #197278ff;
   --accent: #c44536ff;
   --highlight: #772e25ff;
@@ -29,7 +29,7 @@ html,body {
   --ultra-violet: #4a4e69ff;
   --rose-quartz: #9a8c98ff;
   --pale-dogwood: #c9ada7ff;
-  --isabelline: #f2e9e4ff; */
+  --isabelline: #f2e9e4ff;  */
 
 
 
