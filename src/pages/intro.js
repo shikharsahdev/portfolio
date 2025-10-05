@@ -1,21 +1,43 @@
 import { useEffect, useState } from "react";
 
 function Intro() {
-  const messages = [...Array(4).fill("Hello!"),...Array(4).fill("Namaste!"), "Sat Sri Akal!","Sat Sri Akaal!", "Sat Sri Akaaal!", "Sat Sri Akaaaal!", ...Array(8).fill("Sat Sri Akaaaaaal!") ];
+  const messages = [
+    "Hello!",
+    "Namaste!",
+    "Welcome!",
+    "Building the Future",
+    "Creating Impact",
+    "Solving Problems",
+    "Making a Difference",
+    "Shikhar Sahdev"
+  ];
   const [messageIndex, setMessageIndex] = useState(0); 
   useEffect(()=> {
     const interval = setInterval(() => {
-      setMessageIndex((val) => val + 1);
-    }, 200);
+      setMessageIndex((val) => {
+        const nextIndex = val + 1;
+        // Stop at the last message and don't loop
+        if (nextIndex >= messages.length) {
+          return val; // Stay at the last message
+        }
+        return nextIndex;
+      });
+    }, 450); // 0.45 seconds per word for optimal pace
 
     return () => {
       clearInterval(interval);
     };
-  },[]);
+  },[messages.length]);
 
   return (
-    <section className='bg-[--primary] text-[--accent] p-8 py-16 flex h-screen w-screen justify-center items-center md:py-24 header'>
-      <h1 className="uppercase text-3xl font-bold whitespace-nowrap md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl">{ messages[messageIndex % messages.length] }</h1>
+    <section className='bg-[--background] text-[--text-primary] flex h-screen w-screen justify-center items-center header'>
+      <div className='text-center space-y-4'>
+        <h1 className="text-2xl md:text-4xl font-semibold uppercase tracking-widest leading-none">
+          <span className="gradient-text">
+            { messages[messageIndex] || messages[0] }
+          </span>
+        </h1>
+      </div>
     </section>
   );  
 }

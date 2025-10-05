@@ -3,6 +3,7 @@ import './App.scss';
 import Intro from './pages/Intro';
 import Landing from './pages/Landing';
 import Work from './pages/Work';
+import StarryBackground from './components/StarryBackground';
 // function
 function App() {
   const [loading, setLoading] = useState(true);
@@ -16,10 +17,16 @@ function App() {
   })
 
   if (loading) {
-    return <Intro />;
+    return (
+      <div className='text-[--primary] flex flex-col items-center max-w-screen'>
+        <StarryBackground />
+        <Intro />
+      </div>
+    );
   }
   return (
-    <div className='bg-[--background] text-[--primary] flex flex-col items-center max-w-screen'>
+    <div className='text-[--primary] flex flex-col items-center max-w-screen'>
+      <StarryBackground />
       <Landing />
       <Work />
     </div>

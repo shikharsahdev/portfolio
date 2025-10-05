@@ -2,16 +2,42 @@
 function Landing() {
   return (
   <section className='header w-full flex justify-center'>
-    <div className='min-h-screen max-w-5xl box-border p-8 py-16 flex flex-col justify-between md:py-24'>
-      <div  className='flex-1 relative'>
-        <span className='sticky top-16 md:top-24 block'>
-          <h1 className='text-[--background] text-3xl tracking-wide font-medium md:text-5xl'>I'm <b className="text-[--accent]">Shikhar</b>,</h1>
-          <h2 className='mt-8 text-[--background] text-3xl tracking-wide leading-tight font-thin md:text-5xl'>and I believe <i className="text-[--accent] font-medium">impactful products are built with purpose</i>—through <b className="text-[--secondary] font-semibold">collaboration, design, engineering, and innovation</b>, I help bring them to life.</h2>
-        </span>
+    <div className='min-h-screen max-w-6xl box-border px-8 py-4 flex flex-col justify-center md:py-6'>
+      <div className='space-y-16 text-center'>
+        <div className='space-y-12'>
+          <div className="flex justify-center mb-8">
+            <div className="w-40 h-40 md:w-48 md:h-48 bg-white/60 rounded-full flex items-end justify-center overflow-hidden pb-0">
+              <img 
+                src="/memojis/heart.png" 
+                alt="Shikhar" 
+                className="w-32 h-32 md:w-40 md:h-40 object-contain"
+              />
+            </div>
+          </div>
+          <div className="space-y-0 md:space-y-0">
+            <h1 className='text-[--text-primary] text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-none'>
+              <span className="">I'm</span> <span className="gradient-name font-medium">Shikhar</span>
+            </h1>
+            <h2 className='text-[--text-primary] text-2xl md:text-3xl lg:text-4xl font-light tracking-tight leading-tight max-w-4xl mx-auto !mt-6 md:mt-0'>
+              A <span className="gradient-text font-medium">Product-Focused Engineer</span> building the future through <span className="gradient-text font-medium">technology, design, and storytelling</span>
+            </h2>
+          </div>
+        </div>
+        
+        <div className='max-w-2xl mx-auto space-y-8'>
+          <p className='text-[--text-secondary] text-xl md:text-2xl leading-loose font-light'>
+            From hackathon wins to scaling a company from zero to <span className="text-[--accent-primary] font-medium">$15M ARR</span> — I believe in the power of thoughtful product creation that combines engineering depth with design thinking and user empathy.
+          </p>
+          
+          <div className='pt-6'>
+            <p className='text-[--text-tertiary] text-lg md:text-xl leading-loose font-light'>
+              Currently building the future of events at <span className="text-[--accent-primary]">Goldcast</span>
+            </p>
+          </div>
+        </div>
       </div>
-      <p className='my-4 mt-20 text-xl font-light text-[--background] md:text-3xl'>I build with purpose—bridging design, engineering, and innovation to create products that matter. From ideation to execution, I thrive in crafting seamless, user-driven experiences. Whether designing intuitive interfaces, engineering scalable systems, or pushing the boundaries of innovation, I believe in the power of thoughtful creation. Every product I have touched is shaped with intent, ensuring it not only functions but resonates.</p>
     </div>
-      </section>
+  </section>
   );  
 }
 
