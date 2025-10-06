@@ -7,7 +7,7 @@ html,body {
   line-height: 1.5;
   letter-spacing: -0.01em;
   background-color: #000000;
-  /* Previous color schemes (commented out for reference) */
+ /* Previous color schemes (commented out for reference) */
 
 
 
@@ -51,14 +51,30 @@ html,body {
   --spacing-3xl: 4rem;
   --spacing-4xl: 6rem;
 
-
-
-
-
   cursor:
-    url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAedJREFUaEPtWe1xwyAMlbpYnVmSS7tF4y3aXDJL3MVKrzi4QAQyAtu4df4k51hY7z19IIyw8g+u3H/YACyt4KbApkAmA/8nhNTroQGl3jRhChr9jdCBwk/983w5pZCp1/uCBlA956zHKjA4bpyOeoktB6T0elEA6mV/G9gZS++PKogtvl862yTNccsSocOP6y70+CAAddyrsT7T9/2qoY6HE8A9/ISL4vlK+kpeFDFPOoZtfznPeZNvlBIPAEqwJSSZN3vCnR+aBIDc0OH9EN9B5IMDoGr2DWpPhfUB8FRwAUjKpjgehIZRANmlU+hUopldUr0QqjiB7d5m9YS/FkL5HTMxGgS3u/stVwG9Q1Q3waozmkQA6KZfeSL7e6J1bSXgcbtOb+YqVYHakQYA1JjM9LAUngeq6srhSa/8RDZBPQoNM/1YHvn0g/fCZZWYAWyX+aG+wDgoF4U/JGAB9L1hiaTmnWdDyGZuXhDjnE8CMJsSTMz74TgqhBwlpkrswHkSlz/JAMyC5Y5e+iPK2OFVDIQYQLmQGh/vFJAsAPkg8pxPTuKQlMnnnsJ4n0SB9FKbz3pSJ+aqgP9/UI2CrE8KYKhSpnvfX4Jw7w1SiTL3Zyex9MGl7DYApZiUrrMpIGWulN3qFfgGmo/1MTTyBgsAAAAASUVORK5CYII=') 24 24, auto !important
+  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAedJREFUaEPtWe1xwyAMlbpYnVmSS7tF4y3aXDJL3MVKrzi4QAQyAtu4df4k51hY7z19IIyw8g+u3H/YACyt4KbApkAmA/8nhNTroQGl3jRhChr9jdCBwk/983w5pZCp1/uCBlA956zHKjA4bpyOeoktB6T0elEA6mV/G9gZS++PKogtvl862yTNccsSocOP6y70+CAAddyrsT7T9/2qoY6HE8A9/ISL4vlK+kpeFDFPOoZtfznPeZNvlBIPAEqwJSSZN3vCnR+aBIDc0OH9EN9B5IMDoGr2DWpPhfUB8FRwAUjKpjgehIZRANmlU+hUopldUr0QqjiB7d5m9YS/FkL5HTMxGgS3u/stVwG9Q1Q3waozmkQA6KZfeSL7e6J1bSXgcbtOb+YqVYHakQYA1JjM9LAUngeq6srhSa/8RDZBPQoNM/1YHvn0g/fCZZWYAWyX+aG+wDgoF4U/JGAB9L1hiaTmnWdDyGZuXhDjnE8CMJsSTMz74TgqhBwlpkrswHkSlz/JAMyC5Y5e+iPK2OFVDIQYQLmQGh/vFJAsAPkg8pxPTuKQlMnnnsJ4n0SB9FKbz3pSJ+aqgP9/UI2CrE8KYKhSpnvfX4Jw7w1SiTL3Zyex9MGl7DYApZiUrrMpIGWulN3qFfgGmo/1MTTyBgsAAAAASUVORK5CYII=') 24 24, auto !important;
 
 }
+
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--accent-primary);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+ 
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -239,4 +255,47 @@ button:focus-visible {
 
 .modal-exit {
   animation: modalSlideOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Modal blur effects - Multiple approaches */
+.modal-backdrop-blur {
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.modal-content-blur {
+  position: relative;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.modal-header-blur {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Fallback blur using CSS filter */
+.modal-content-blur-fallback {
+  position: relative;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-content-blur-fallback::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: inherit;
+  filter: blur(20px);
+  z-index: -1;
+  border-radius: inherit;
 }

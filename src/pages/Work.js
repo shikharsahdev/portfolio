@@ -9,6 +9,11 @@ function Work() {
     setSelectedExperience(experience);
     setIsModalOpen(true);
     document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Test if backdrop-filter is supported
+    const testEl = document.createElement('div');
+    testEl.style.backdropFilter = 'blur(10px)';
+    console.log('Backdrop filter support:', testEl.style.backdropFilter !== '');
   };
 
   const closeModal = () => {
@@ -54,7 +59,8 @@ function Work() {
       ],
       dates: 'Aug 2020 – Present',
       category: 'Current Role',
-      impact: '$15M ARR',
+      takeaway: 'How to build and scale products from zero to millions in revenue, lead teams, and drive product strategy in a fast-growing startup environment.',
+      takeawayShort: 'Product Leadership',
       color: 'blue'
     },
     {
@@ -80,7 +86,8 @@ function Work() {
       ],
       dates: 'Oct 2019 – Aug 2020',
       category: 'Growth Phase',
-      impact: 'Pan-India Expansion',
+      takeaway: 'How to become a star performer by taking ownership of critical projects, building scalable solutions, and expanding products to new markets.',
+      takeawayShort: 'Ownership & Scale',
       color: 'green'
     },
     {
@@ -105,7 +112,8 @@ function Work() {
       ],
       dates: '2016 – 2018',
       category: 'Impact Work',
-      impact: '5 Hospitals',
+      takeaway: 'How to build systems that create real-world impact, work with government institutions, and transition organizations from legacy to digital systems.',
+      takeawayShort: 'Real Impact',
       color: 'purple'
     },
     {
@@ -129,7 +137,8 @@ function Work() {
       ],
       dates: '2018 – 2019',
       category: 'Corporate',
-      impact: 'Enterprise Scale',
+      takeaway: 'How to work in large-scale enterprise environments, understand the importance of finding work that aligns with your values, and the value of seeking meaningful impact.',
+      takeawayShort: 'Values & Purpose',
       color: 'orange'
     }
   ];
@@ -141,10 +150,10 @@ function Work() {
   // Remove individual color theming - use consistent design
 
   return (
-      <section className='max-w-7xl mx-auto px-6 py-24'>
+      <section id="main" className='max-w-7xl mx-auto px-6 py-24' role="main">
         <div className='space-y-20'>
           {/* Header Section */}
-          <div className='text-center space-y-8 max-w-4xl mx-auto'>
+          <header className='text-center space-y-8 max-w-4xl mx-auto'>
             <h2 className='text-5xl md:text-6xl lg:text-7xl font-light text-[--text-primary] tracking-tight leading-tight'>
               My Journey in 
               <span className="gradient-text block">
@@ -154,37 +163,40 @@ function Work() {
             <p className='text-xl md:text-2xl text-[--text-secondary] leading-relaxed font-light max-w-3xl mx-auto'>
               I've been building products since school — what began as curiosity turned into a deep passion for creating meaningful, scalable experiences.
             </p>
-          </div>
+          </header>
 
           {/* Work Experience Cards */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12" role="list">
             {keyExperiences.map((experience, index) => (
-              <div 
+              <article 
                 key={index} 
                 className="group hover:opacity-80 transition-all duration-300 cursor-pointer"
                 onClick={() => openModal(experience)}
+                role="listitem"
+                itemScope
+                itemType="https://schema.org/Organization"
               >
                 {/* Minimal Card Design */}
                 <div className='space-y-6'>
                   {/* Header */}
-                  <div className='flex items-start justify-between'>
+                  <header className='flex items-start justify-between'>
                     <div className='flex items-center gap-4'>
                       <div className='w-12 h-12 flex items-center justify-center bg-white rounded-xl flex-shrink-0'>
                         <img 
                           src={experience.logo} 
-                          alt={`${experience.heading} Logo`} 
+                          alt={`${experience.heading} company logo`} 
                           className="w-8 h-8 object-contain"
                         />
                       </div>
                       <div>
-                        <h3 className='text-2xl font-medium text-[--text-primary] tracking-tight'>{experience.heading}</h3>
-                        <p className='text-sm text-[--text-tertiary]'>{experience.dates}</p>
+                        <h3 className='text-2xl font-medium text-[--text-primary] tracking-tight' itemProp="name">{experience.heading}</h3>
+                        <time className='text-sm text-[--text-tertiary]' dateTime={experience.dates}>{experience.dates}</time>
                       </div>
                     </div>
                     <div className='text-right'>
-                      <div className='text-sm font-medium text-[--accent-primary]'>{experience.impact}</div>
+                      <div className='text-sm font-medium text-[--accent-primary]'>{experience.takeawayShort}</div>
                     </div>
-                  </div>
+                  </header>
 
                   {/* Role */}
                   <div>
@@ -199,17 +211,17 @@ function Work() {
                   {/* Learn More */}
                   <div className='flex items-center gap-2 text-[--accent-primary] font-medium'>
                     <span className='text-sm'>Learn more</span>
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         
         {/* Background & Journey Section */}
-        <div className="mt-32">
+        <div className="!mt-48">
           <div className='text-center space-y-8 max-w-4xl mx-auto mb-20'>
             <h2 className='text-4xl md:text-5xl font-light text-[--text-primary] tracking-tight leading-tight'>
               My Background & <span className="gradient-text">Journey</span>
@@ -220,26 +232,18 @@ function Work() {
           </div>
           
           {/* Story Flow */}
-          <div className="max-w-5xl mx-auto space-y-20">
-            {/* Early Beginnings */}
-            <div className="relative">
-              <div className="flex items-start gap-8">
-                <div className="hidden md:flex flex-shrink-0 w-16 h-16 bg-gradient-to-br from-[--accent-primary]/20 to-[--accent-purple]/20 rounded-2xl items-center justify-center">
-                  <svg className="w-8 h-8 text-[--accent-primary]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <div className="flex-1 space-y-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <h3 className='text-2xl font-medium text-[--text-primary]'>The Spark of Creation</h3>
-                    <span className="text-sm text-[--text-tertiary]">2008-2014</span>
-                  </div>
-                  <p className='text-lg text-[--text-secondary] leading-relaxed'>
-                    At 12-13 years old, I discovered Photoshop and web development. What started as curiosity became a lifelong passion for building things that people love and that solve real problems.
-                  </p>
+          <div className="max-w-5xl mx-auto space-y-16">
+            <div className="space-y-8">
+              <p className='text-xl text-[--text-secondary] leading-relaxed'>
+                At <span className="font-semibold text-[--accent-primary]">12-13 years old</span>, I discovered <span className="font-semibold text-[--accent-primary]">Photoshop and web development</span>. What started as curiosity became a lifelong passion for building things that people love and that solve real problems.
+              </p>
+              
+              <p className='text-lg text-[--text-secondary] leading-relaxed'>
+                Here are some of the <span className="font-semibold text-[--accent-primary]">projects I got to make early on</span> — each one teaching me something new about what it means to build something people actually use.
+              </p>
                   
-                  {/* Key Projects with Details */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+              {/* Key Projects with Details */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                     <div className="group hover:opacity-80 transition-all duration-300">
                       <div className="space-y-3">
                         <div className="flex items-center gap-2">
@@ -248,7 +252,7 @@ function Work() {
                           <span className="text-xs text-[--accent-primary] font-medium bg-[--accent-primary]/10 px-2 py-1 rounded-full">Hackathon Winner</span>
                         </div>
                         <p className="text-[--text-secondary] leading-relaxed">
-                          A beacon-based solution to visualize metro coach occupancy before trains arrive. We solved a real problem that Delhi Metro Corporation now implements differently.
+                          A <span className="font-semibold text-[--accent-primary]">beacon-based solution</span> to visualize metro coach occupancy before trains arrive. We solved a real problem that <span className="font-semibold text-[--accent-primary]">Delhi Metro Corporation</span> now implements differently.
                         </p>
                       </div>
                     </div>
@@ -261,7 +265,7 @@ function Work() {
                           <span className="text-xs text-[--accent-primary] font-medium bg-[--accent-primary]/10 px-2 py-1 rounded-full">Blood Donation</span>
                         </div>
                         <p className="text-[--text-secondary] leading-relaxed">
-                          An app connecting blood donors and recipients. As first and second-year college students, we built a solution that actually worked and helped users.
+                          An app connecting <span className="font-semibold text-[--accent-primary]">blood donors and recipients</span>. As <span className="font-semibold text-[--accent-primary]">first and second-year college students</span>, we built a solution that actually worked and helped users.
                         </p>
                       </div>
                     </div>
@@ -274,15 +278,15 @@ function Work() {
                           <span className="text-xs text-[--accent-primary] font-medium bg-[--accent-primary]/10 px-2 py-1 rounded-full">Hackathon Winner</span>
                         </div>
                         <p className="text-[--text-secondary] leading-relaxed">
-                          An AR travel companion that let tourists point their phone in any direction to see what's happening and discover places they might like.
+                          An <span className="font-semibold text-[--accent-primary]">AR travel companion</span> that let tourists point their phone in any direction to see what's happening and discover places they might like.
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  {/* Achievements moved here */}
-                  <div className="mt-8 p-6 bg-[--surface] rounded-2xl border border-[--border-light]">
-                    <h4 className="text-lg font-medium text-[--text-primary] mb-4">Early Recognition</h4>
+              {/* Recognition */}
+              <div className="mt-8 p-6 bg-[--surface] rounded-2xl border border-[--border-light]">
+                    <h4 className="text-lg font-medium text-[--text-primary] mb-4">Recognition</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-3">
                         <div className="flex items-start space-x-3">
@@ -295,8 +299,15 @@ function Work() {
                         <div className="flex items-start space-x-3">
                           <div className="w-1.5 h-1.5 bg-[--accent-primary] rounded-full mt-2 flex-shrink-0"></div>
                           <div>
-                            <span className="text-[--text-secondary] font-medium">Winner — Hack Shipsy & Goldcast AI Hackathon</span>
-                            <p className="text-sm text-[--text-tertiary]">Recent hackathon victories</p>
+                            <span className="text-[--text-secondary] font-medium">Winner — Hack Shipsy, Goldcast AI Hackathon, HackDelhi, HackIIITD</span>
+                            <p className="text-sm text-[--text-tertiary]">Multiple hackathon victories</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start space-x-3">
+                          <div className="w-1.5 h-1.5 bg-[--accent-primary] rounded-full mt-2 flex-shrink-0"></div>
+                          <div>
+                            <span className="text-[--text-secondary] font-medium">AIR 780 (Top 0.05%) JEE Mains</span>
+                            <p className="text-sm text-[--text-tertiary]">All India Rank in engineering entrance</p>
                           </div>
                         </div>
                       </div>
@@ -315,113 +326,33 @@ function Work() {
                             <p className="text-sm text-[--text-tertiary]">97.5% in Class 12, 10 CGPA in Class 10</p>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Leadership & Growth */}
-            <div className="relative">
-              <div className="flex items-start gap-8">
-                <div className="hidden md:flex flex-shrink-0 w-16 h-16 bg-gradient-to-br from-[--accent-primary]/20 to-[--accent-purple]/20 rounded-2xl items-center justify-center">
-                  <svg className="w-8 h-8 text-[--accent-primary]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <div className="flex-1 space-y-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <h3 className='text-2xl font-medium text-[--text-primary]'>Learning to Lead</h3>
-                    <span className="text-sm text-[--text-tertiary]">2014-2018</span>
-                  </div>
-                  <p className='text-lg text-[--text-secondary] leading-relaxed'>
-                    School gave me my first exposure to teamwork and leadership. I learned how to bring people together, organize events, and work collaboratively on projects that mattered to our community.
-                  </p>
-                  
-                  {/* Leadership Details */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
-                    <div className="space-y-4">
-                      <h4 className="text-lg font-medium text-[--text-primary]">Leadership Experience</h4>
-                      <div className="space-y-3">
                         <div className="flex items-start space-x-3">
                           <div className="w-1.5 h-1.5 bg-[--accent-primary] rounded-full mt-2 flex-shrink-0"></div>
                           <div>
-                            <span className="text-[--text-secondary] font-medium">President, XINO (School Computer Club)</span>
-                            <p className="text-sm text-[--text-tertiary]">Organized tech initiatives and hackathons</p>
-                          </div>
-                        </div>
-                        <div className="flex items-start space-x-3">
-                          <div className="w-1.5 h-1.5 bg-[--accent-primary] rounded-full mt-2 flex-shrink-0"></div>
-                          <div>
-                            <span className="text-[--text-secondary] font-medium">President, IT & Quiz Cabinet</span>
-                            <p className="text-sm text-[--text-tertiary]">Coordinated inter-school competitions</p>
-                          </div>
-                        </div>
-                        <div className="flex items-start space-x-3">
-                          <div className="w-1.5 h-1.5 bg-[--accent-primary] rounded-full mt-2 flex-shrink-0"></div>
-                          <div>
-                            <span className="text-[--text-secondary] font-medium">DTU Theatre Society</span>
-                            <p className="text-sm text-[--text-tertiary]">Explored creative expression alongside technical work</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="space-y-4">
-                      <h4 className="text-lg font-medium text-[--text-primary]">What I Learned</h4>
-                      <div className="space-y-3">
-                        <div className="flex items-start space-x-3">
-                          <div className="w-1.5 h-1.5 bg-[--accent-primary] rounded-full mt-2 flex-shrink-0"></div>
-                          <div>
-                            <span className="text-[--text-secondary] font-medium">Teamwork & Collaboration</span>
-                            <p className="text-sm text-[--text-tertiary]">How to work effectively with diverse groups</p>
-                          </div>
-                        </div>
-                        <div className="flex items-start space-x-3">
-                          <div className="w-1.5 h-1.5 bg-[--accent-primary] rounded-full mt-2 flex-shrink-0"></div>
-                          <div>
-                            <span className="text-[--text-secondary] font-medium">Event Organization</span>
-                            <p className="text-sm text-[--text-tertiary]">Planning and executing community events</p>
-                          </div>
-                        </div>
-                        <div className="flex items-start space-x-3">
-                          <div className="w-1.5 h-1.5 bg-[--accent-primary] rounded-full mt-2 flex-shrink-0"></div>
-                          <div>
-                            <span className="text-[--text-secondary] font-medium">Balancing Interests</span>
-                            <p className="text-sm text-[--text-tertiary]">Managing technical and creative pursuits</p>
+                            <span className="text-[--text-secondary] font-medium">Best Actor — Pratibimb Dramatics Club</span>
+                            <p className="text-sm text-[--text-tertiary]">Theatre and performance recognition</p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Creative Pursuits */}
-            <div className="relative">
-              <div className="flex items-start gap-8">
-                <div className="hidden md:flex flex-shrink-0 w-16 h-16 bg-gradient-to-br from-[--accent-primary]/20 to-[--accent-purple]/20 rounded-2xl items-center justify-center">
-                  <svg className="w-8 h-8 text-[--accent-primary]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m0 0V1a1 1 0 011-1h2a1 1 0 011 1v18a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1h2a1 1 0 011 1v2m-6 0h16" />
-                  </svg>
-                </div>
-                <div className="flex-1 space-y-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <h3 className='text-2xl font-medium text-[--text-primary]'>Beyond Code</h3>
-                    <span className="text-sm text-[--text-tertiary]">Ongoing</span>
-                  </div>
-                  <p className='text-lg text-[--text-secondary] leading-relaxed'>
-                    I enjoy music, football, and art — not because I'm particularly good at them, but because they bring me joy and help me think differently. I play guitar and ukulele for myself, kick around a football when I can, and doodle when I need a break from screens. 
-                  </p>
-                </div>
-              </div>
-            </div>
+              <p className='text-lg text-[--text-secondary] leading-relaxed mt-12'>
+                School gave me my first exposure to <span className="font-semibold text-[--accent-primary]">teamwork and leadership</span>. I served as <span className="font-semibold text-[--accent-primary]">President of XINO</span> (our school's computer club), organized tech initiatives and hackathons, and coordinated inter-school competitions as <span className="font-semibold text-[--accent-primary]">President of the IT & Quiz Cabinet</span>. I was also a <span className="font-semibold text-[--accent-primary]">core member of the school mathematics club</span>.
+              </p>
+              
+              <p className='text-lg text-[--text-secondary] leading-relaxed'>
+                In college, I explored creative expression through <span className="font-semibold text-[--accent-primary]">DTU Theatre Society</span>. These experiences taught me how to <span className="font-semibold text-[--accent-primary]">bring people together</span>, organize events, and work collaboratively on projects that mattered to our community. I learned the value of <span className="font-semibold text-[--accent-primary]">balancing technical and creative pursuits</span>, and how to work effectively with diverse groups to achieve common goals.
+              </p>
+
+              <p className='text-lg text-[--text-secondary] leading-relaxed'>
+                I enjoy <span className="font-semibold text-[--accent-primary]">music, football, and art</span> — not because I'm particularly good at them, but because they bring me joy and help me think differently. I play <span className="font-semibold text-[--accent-primary]">guitar and ukulele</span> for myself, kick around a football when I can, and doodle when I need a break from screens.
+              </p>
           </div>
         </div>
 
-        <div className="mt-32">
+        <section className="mt-32" id="contact">
           <div className='apple-card bg-gradient-to-br from-[--accent-primary]/20 to-[--accent-purple]/20 border-[--accent-primary]/30 p-12 md:p-16 text-center'>
             <div className='space-y-8 max-w-4xl mx-auto'>
               <h3 className="text-4xl md:text-5xl font-light text-[--text-primary] leading-tight tracking-tight">
@@ -434,34 +365,53 @@ function Work() {
                 <a 
                   href="mailto:shikharsahdev@gmail.com" 
                   className='apple-button bg-[--accent-primary] text-white hover:bg-[--accent-primary]/90 hover:scale-105 transition-all duration-300 px-8 py-4 text-lg font-medium'
+                  aria-label="Contact Shikhar Sahdev via email"
                 >
                   Let's talk
                 </a>
                 <a 
                   href="https://linkedin.com/in/shikharsahdev" 
                   className='apple-button bg-white/10 backdrop-blur-sm text-[--text-primary] hover:bg-white/20 hover:scale-105 transition-all duration-300 px-8 py-4 text-lg font-medium'
+                  aria-label="Connect with Shikhar Sahdev on LinkedIn"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Connect on LinkedIn
                 </a>
               </div>
             </div>
           </div>
-        </div>
+        </section>
         </div>
 
         {/* Modal */}
         {isModalOpen && selectedExperience && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-enter">
+          <>
             {/* Backdrop */}
             <div 
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="fixed inset-0 z-40"
+              style={{
+                background: 'rgba(0, 0, 0, 0.6)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                willChange: 'backdrop-filter'
+              }}
               onClick={closeModal}
             ></div>
             
-            {/* Modal Content */}
-            <div className="relative w-full max-w-4xl max-h-[90vh] bg-[--surface] border border-[--border] rounded-3xl shadow-2xl overflow-hidden">
+            {/* Modal Container */}
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-enter">
+              {/* Modal Content */}
+              <div 
+                className="relative w-full max-w-4xl max-h-[90vh] bg-black/80 border border-gray-700/50 rounded-3xl shadow-2xl overflow-hidden"
+                style={{
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  background: 'rgba(0, 0, 0, 0.8)'
+                }}
+              >
               {/* Modal Header */}
-              <div className="p-6 md:p-8 border-b border-[--border-light] bg-[--surface]">
+              <div className="p-6 md:p-8 border-b border-gray-700/50 bg-black/40 modal-header-blur">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-4 md:gap-6 flex-1 min-w-0">
                     <div className='w-16 h-16 md:w-20 md:h-20 flex items-center justify-center bg-white rounded-2xl border border-[--border-light] flex-shrink-0'>
@@ -472,24 +422,24 @@ function Work() {
                       />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-[--text-primary] tracking-tight truncate'>{selectedExperience.heading}</h2>
-                      <p className='text-base md:text-lg text-[--text-tertiary] font-medium'>{selectedExperience.category}</p>
-                      <p className='text-xs md:text-sm text-[--text-secondary] mt-1'>{selectedExperience.dates}</p>
+                      <h2 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-white tracking-tight truncate'>{selectedExperience.heading}</h2>
+                      <p className='text-base md:text-lg text-gray-400 font-medium'>{selectedExperience.category}</p>
+                      <p className='text-xs md:text-sm text-gray-300 mt-1'>{selectedExperience.dates}</p>
                     </div>
                   </div>
                   <button 
                     onClick={closeModal}
-                    className="p-2 hover:bg-[--surface-hover] rounded-full transition-colors duration-200 flex-shrink-0 ml-4"
+                    className="p-2 hover:bg-gray-800 rounded-full transition-colors duration-200 flex-shrink-0 ml-4"
                   >
-                    <svg className="w-5 h-5 md:w-6 md:h-6 text-[--text-primary]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
                 </div>
                 <div className="mt-4 md:mt-6">
-                  <h3 className='text-lg md:text-xl font-medium text-[--text-primary] mb-2 md:mb-3'>{selectedExperience.subheading}</h3>
-                  <div className='text-sm font-semibold text-[--accent-primary]'>
-                    Impact: {selectedExperience.impact}
+                  <h3 className='text-lg md:text-xl font-medium text-white mb-2 md:mb-3'>{selectedExperience.subheading}</h3>
+                  <div className='text-sm font-semibold text-blue-400'>
+                    Takeaway: {selectedExperience.takeaway}
                   </div>
                 </div>
               </div>
@@ -499,22 +449,22 @@ function Work() {
                 <div className="space-y-6 md:space-y-8">
                   {/* Detailed Description */}
                   <div>
-                    <h4 className='text-xl md:text-2xl font-semibold text-[--text-primary] mb-3 md:mb-4'>Overview</h4>
-                    <div className='text-base md:text-lg text-[--text-secondary] leading-relaxed'>
+                    <h4 className='text-xl md:text-2xl font-semibold text-white mb-3 md:mb-4'>Overview</h4>
+                    <div className='text-base md:text-lg text-gray-300 leading-relaxed'>
                       {selectedExperience.detailedText.split('*').map((text, textIndex) => (
-                        <span key={textIndex} className={textIndex % 2 === 1 ? 'font-semibold text-[--accent-primary]' : ''}>{text}</span>
+                        <span key={textIndex} className={textIndex % 2 === 1 ? 'font-semibold text-blue-400' : ''}>{text}</span>
                       ))}
                     </div>
                   </div>
 
                   {/* Key Achievements */}
                   <div>
-                    <h4 className='text-xl md:text-2xl font-semibold text-[--text-primary] mb-4 md:mb-6'>Key Achievements & Impact</h4>
+                    <h4 className='text-xl md:text-2xl font-semibold text-white mb-4 md:mb-6'>Key Achievements & Impact</h4>
                     <div className='space-y-3 md:space-y-4'>
                       {selectedExperience.highlights.map((highlight, highlightIndex) => (
                         <div key={highlightIndex} className='flex items-start space-x-3 md:space-x-4'>
-                          <div className='w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-[--accent-primary]'></div>
-                          <span className='text-base md:text-lg text-[--text-secondary] leading-relaxed'>{highlight}</span>
+                          <div className='w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-blue-400'></div>
+                          <span className='text-base md:text-lg text-gray-300 leading-relaxed'>{highlight}</span>
                         </div>
                       ))}
                     </div>
@@ -522,12 +472,12 @@ function Work() {
 
                   {/* Technical Challenges */}
                   <div>
-                    <h4 className='text-xl md:text-2xl font-semibold text-[--text-primary] mb-4 md:mb-6'>Technical Challenges Solved</h4>
+                    <h4 className='text-xl md:text-2xl font-semibold text-white mb-4 md:mb-6'>Technical Challenges Solved</h4>
                     <div className='space-y-3 md:space-y-4'>
                       {selectedExperience.technicalChallenges.map((challenge, challengeIndex) => (
                         <div key={challengeIndex} className='flex items-start space-x-3 md:space-x-4'>
-                          <div className='w-2 h-2 bg-[--accent-secondary] rounded-full mt-2 flex-shrink-0'></div>
-                          <span className='text-base md:text-lg text-[--text-secondary] leading-relaxed'>{challenge}</span>
+                          <div className='w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0'></div>
+                          <span className='text-base md:text-lg text-gray-300 leading-relaxed'>{challenge}</span>
                         </div>
                       ))}
                     </div>
@@ -535,36 +485,26 @@ function Work() {
                 </div>
               </div>
 
-              {/* Modal Footer */}
-              <div className="p-4 md:p-6 border-t border-[--border-light] bg-[--surface-secondary]">
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <div className="text-xs md:text-sm text-[--text-tertiary] hidden sm:block">
-                    Press <kbd className="px-2 py-1 bg-[--surface] rounded text-xs">ESC</kbd> to close
-                  </div>
-                  <button 
-                    onClick={closeModal}
-                    className="w-full sm:w-auto px-6 py-3 bg-[--accent-primary] text-white rounded-xl hover:bg-[--accent-primary]/90 transition-colors duration-200 font-medium"
-                  >
-                    Close
-                  </button>
-                </div>
               </div>
             </div>
-          </div>
+          </>
         )}
         
-        {/* Footer Disclaimer */}
-        <div className="mt-32">
+        {/* Footer */}
+        <footer className="mt-32" role="contentinfo">
           <div className="text-center">
             <p className="text-base text-[--text-tertiary] font-light tracking-wide">
               Made with 
-              <svg className="inline w-6 h-6 mx-1 text-red-500 -mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="inline w-6 h-6 mx-1 text-red-500 -mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
               </svg>
               and a little help from AI
             </p>
+            <p className="text-sm text-[--text-tertiary] mt-2">
+              © 2024 Shikhar Sahdev. All rights reserved.
+            </p>
           </div>
-        </div>
+        </footer>
       </section>
   );  
 }

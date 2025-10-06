@@ -1,7 +1,7 @@
 
 function Landing() {
   return (
-  <section className='header w-full flex justify-center'>
+  <section className='header w-full flex justify-center' role="banner">
     <div className='min-h-screen max-w-6xl box-border px-8 py-4 flex flex-col justify-center md:py-6'>
       <div className='space-y-16 text-center'>
         <div className='space-y-12'>
@@ -9,7 +9,7 @@ function Landing() {
             <div className="w-40 h-40 md:w-48 md:h-48 bg-white/60 rounded-full flex items-end justify-center overflow-hidden pb-0">
               <img 
                 src="/memojis/heart.png" 
-                alt="Shikhar" 
+                alt="Shikhar Sahdev - Product-Focused Engineer" 
                 className="w-32 h-32 md:w-40 md:h-40 object-contain"
               />
             </div>
