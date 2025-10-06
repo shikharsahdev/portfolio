@@ -235,11 +235,11 @@ function Work() {
           <div className="max-w-5xl mx-auto space-y-16">
             <div className="space-y-8">
               <p className='text-xl text-[--text-secondary] leading-relaxed'>
-                At <span className="font-semibold text-[--accent-primary]">12-13 years old</span>, I discovered <span className="font-semibold text-[--accent-primary]">Photoshop and web development</span>. What started as curiosity became a lifelong passion for building things that people love and that solve real problems.
+                At <span className="font-semibold text-white">12-13 years old</span>, I discovered <span className="font-semibold text-white">Photoshop and web development</span>. What started as curiosity became a lifelong passion for building things that people love and that solve real problems.
               </p>
               
               <p className='text-lg text-[--text-secondary] leading-relaxed'>
-                Here are some of the <span className="font-semibold text-[--accent-primary]">projects I got to make early on</span> — each one teaching me something new about what it means to build something people actually use.
+                Here are some of the projects I got to make early on — each one teaching me something new about what it means to build something people actually use.
               </p>
                   
               {/* Key Projects with Details */}
@@ -252,7 +252,7 @@ function Work() {
                           <span className="text-xs text-[--accent-primary] font-medium bg-[--accent-primary]/10 px-2 py-1 rounded-full">Hackathon Winner</span>
                         </div>
                         <p className="text-[--text-secondary] leading-relaxed">
-                          A <span className="font-semibold text-[--accent-primary]">beacon-based solution</span> to visualize metro coach occupancy before trains arrive. We solved a real problem that <span className="font-semibold text-[--accent-primary]">Delhi Metro Corporation</span> now implements differently.
+                          A <span className="font-semibold text-white">beacon-based solution</span> to visualize metro coach occupancy before trains arrive. We solved a real problem that <span className="font-semibold text-white">Delhi Metro Corporation</span> now implements differently.
                         </p>
                       </div>
                     </div>
@@ -265,7 +265,7 @@ function Work() {
                           <span className="text-xs text-[--accent-primary] font-medium bg-[--accent-primary]/10 px-2 py-1 rounded-full">Blood Donation</span>
                         </div>
                         <p className="text-[--text-secondary] leading-relaxed">
-                          An app connecting <span className="font-semibold text-[--accent-primary]">blood donors and recipients</span>. As <span className="font-semibold text-[--accent-primary]">first and second-year college students</span>, we built a solution that actually worked and helped users.
+                          An app connecting <span className="font-semibold text-white">blood donors and recipients</span>. As <span className="font-semibold text-white">first and second-year college students</span>, we built a solution that actually worked and helped users.
                         </p>
                       </div>
                     </div>
@@ -278,7 +278,7 @@ function Work() {
                           <span className="text-xs text-[--accent-primary] font-medium bg-[--accent-primary]/10 px-2 py-1 rounded-full">Hackathon Winner</span>
                         </div>
                         <p className="text-[--text-secondary] leading-relaxed">
-                          An <span className="font-semibold text-[--accent-primary]">AR travel companion</span> that let tourists point their phone in any direction to see what's happening and discover places they might like.
+                          An <span className="font-semibold text-white">AR travel companion</span> that let tourists point their phone in any direction to see what's happening and discover places they might like.
                         </p>
                       </div>
                     </div>
@@ -339,15 +339,15 @@ function Work() {
                 </div>
 
               <p className='text-lg text-[--text-secondary] leading-relaxed mt-12'>
-                School gave me my first exposure to <span className="font-semibold text-[--accent-primary]">teamwork and leadership</span>. I served as <span className="font-semibold text-[--accent-primary]">President of XINO</span> (our school's computer club), organized tech initiatives and hackathons, and coordinated inter-school competitions as <span className="font-semibold text-[--accent-primary]">President of the IT & Quiz Cabinet</span>. I was also a <span className="font-semibold text-[--accent-primary]">core member of the school mathematics club</span>.
+                School gave me my first exposure to <span className="font-semibold text-white">teamwork and leadership</span>. I served as <span className="font-semibold text-[--accent-primary]">President of XINO</span> (our school's computer club), organized tech initiatives and hackathons, and coordinated inter-school competitions as <span className="font-semibold text-[--accent-primary]">President of the IT & Quiz Cabinet</span>. I was also a <span className="font-semibold text-white">core member of the school mathematics club</span>.
               </p>
               
               <p className='text-lg text-[--text-secondary] leading-relaxed'>
-                In college, I explored creative expression through <span className="font-semibold text-[--accent-primary]">DTU Theatre Society</span>. These experiences taught me how to <span className="font-semibold text-[--accent-primary]">bring people together</span>, organize events, and work collaboratively on projects that mattered to our community. I learned the value of <span className="font-semibold text-[--accent-primary]">balancing technical and creative pursuits</span>, and how to work effectively with diverse groups to achieve common goals.
+                In college, I explored creative expression through <span className="font-semibold text-[--accent-primary]">DTU Theatre Society</span>. These experiences taught me how to <span className="font-semibold text-white">bring people together</span>, organize events, and work collaboratively on projects that mattered to our community. I learned the value of <span className="font-semibold text-white">balancing technical and creative pursuits</span>, and how to work effectively with diverse groups to achieve common goals.
               </p>
 
               <p className='text-lg text-[--text-secondary] leading-relaxed'>
-                I enjoy <span className="font-semibold text-[--accent-primary]">music, football, and art</span> — not because I'm particularly good at them, but because they bring me joy and help me think differently. I play <span className="font-semibold text-[--accent-primary]">guitar and ukulele</span> for myself, kick around a football when I can, and doodle when I need a break from screens.
+                I enjoy <span className="font-semibold text-white">music, football, and art</span> — not because I'm particularly good at them, but because they bring me joy and help me think differently. I play <span className="font-semibold text-white">guitar and ukulele</span> for myself, kick around a football when I can, and doodle when I need a break from screens.
               </p>
           </div>
         </div>
