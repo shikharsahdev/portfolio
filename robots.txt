@@ -1,3 +1,23 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap location
+Sitemap: https://shikhar.sah.dev/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow access to build artifacts and sensitive files
+Disallow: /static/
+Disallow: /build/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /node_modules/
+
+# Allow important files
+Allow: /favicon.ico
+Allow: /manifest.json
+Allow: /robots.txt
+Allow: /sitemap.xml
