@@ -33,7 +33,7 @@ function App() {
     <div className='text-[--primary] flex flex-col items-center max-w-screen'>
       <StarryBackground />
       {/* Always render all content for SEO, but control visibility */}
-      <div className={loading ? 'opacity-0 absolute' : 'opacity-100 transition-opacity duration-1000'}>
+      <div className={loading ? 'invisible' : 'visible transition-opacity duration-1000'}>
         <Landing />
         <Work />
       </div>
