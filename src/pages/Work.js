@@ -150,7 +150,7 @@ function Work() {
   // Remove individual color theming - use consistent design
 
   return (
-      <section id="main" className='max-w-7xl mx-auto px-6 py-24' role="main">
+      <section id="work" className='max-w-7xl mx-auto px-6 py-24'>
         <div className='space-y-20'>
           {/* Header Section */}
           <header className='text-center space-y-8 max-w-4xl mx-auto'>
@@ -221,15 +221,15 @@ function Work() {
           </div>
         
         {/* Background & Journey Section */}
-        <div className="!mt-48">
-          <div className='text-center space-y-8 max-w-4xl mx-auto mb-20'>
+        <section className="!mt-48">
+          <header className='text-center space-y-8 max-w-4xl mx-auto mb-20'>
             <h2 className='text-4xl md:text-5xl font-light text-[--text-primary] tracking-tight leading-tight'>
               My Background & <span className="gradient-text">Journey</span>
             </h2>
             <p className='text-xl text-[--text-secondary] leading-relaxed'>
               From discovering Photoshop at 12 to building products that impact millions — here's how curiosity became a career in product engineering.
             </p>
-          </div>
+          </header>
           
           {/* Story Flow */}
           <div className="max-w-5xl mx-auto space-y-16">
@@ -243,50 +243,50 @@ function Work() {
               </p>
                   
               {/* Key Projects with Details */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                    <div className="group hover:opacity-80 transition-all duration-300">
+              <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <article className="group hover:opacity-80 transition-all duration-300">
                       <div className="space-y-3">
-                        <div className="flex items-center gap-2">
+                        <header className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-[--accent-primary] rounded-full"></div>
-                          <h4 className="text-lg font-medium text-[--text-primary]">CrowdAlert</h4>
+                          <h3 className="text-lg font-medium text-[--text-primary]">CrowdAlert</h3>
                           <span className="text-xs text-[--accent-primary] font-medium bg-[--accent-primary]/10 px-2 py-1 rounded-full">Hackathon Winner</span>
-                        </div>
+                        </header>
                         <p className="text-[--text-secondary] leading-relaxed">
                           A <span className="font-semibold text-white">beacon-based solution</span> to visualize metro coach occupancy before trains arrive. We solved a real problem that <span className="font-semibold text-white">Delhi Metro Corporation</span> now implements differently.
                         </p>
                       </div>
-                    </div>
+                    </article>
 
-                    <div className="group hover:opacity-80 transition-all duration-300">
+                    <article className="group hover:opacity-80 transition-all duration-300">
                       <div className="space-y-3">
-                        <div className="flex items-center gap-2">
+                        <header className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-[--accent-primary] rounded-full"></div>
-                          <h4 className="text-lg font-medium text-[--text-primary]">Aasha</h4>
+                          <h3 className="text-lg font-medium text-[--text-primary]">Aasha</h3>
                           <span className="text-xs text-[--accent-primary] font-medium bg-[--accent-primary]/10 px-2 py-1 rounded-full">Blood Donation</span>
-                        </div>
+                        </header>
                         <p className="text-[--text-secondary] leading-relaxed">
                           An app connecting <span className="font-semibold text-white">blood donors and recipients</span>. As <span className="font-semibold text-white">first and second-year college students</span>, we built a solution that actually worked and helped users.
                         </p>
                       </div>
-                    </div>
+                    </article>
 
-                    <div className="group hover:opacity-80 transition-all duration-300">
+                    <article className="group hover:opacity-80 transition-all duration-300">
                       <div className="space-y-3">
-                        <div className="flex items-center gap-2">
+                        <header className="flex items-center gap-2">
                           <div className="w-2 h-2 bg-[--accent-primary] rounded-full"></div>
-                          <h4 className="text-lg font-medium text-[--text-primary]">Immerse</h4>
+                          <h3 className="text-lg font-medium text-[--text-primary]">Immerse</h3>
                           <span className="text-xs text-[--accent-primary] font-medium bg-[--accent-primary]/10 px-2 py-1 rounded-full">Hackathon Winner</span>
-                        </div>
+                        </header>
                         <p className="text-[--text-secondary] leading-relaxed">
                           An <span className="font-semibold text-white">AR travel companion</span> that let tourists point their phone in any direction to see what's happening and discover places they might like.
                         </p>
                       </div>
-                    </div>
-                  </div>
+                    </article>
+                  </section>
 
               {/* Recognition */}
-              <div className="mt-8 p-6 bg-[--surface] rounded-2xl border border-[--border-light]">
-                    <h4 className="text-lg font-medium text-[--text-primary] mb-4">Recognition</h4>
+              <section className="mt-8 p-6 bg-[--surface] rounded-2xl border border-[--border-light]">
+                    <h3 className="text-lg font-medium text-[--text-primary] mb-4">Recognition</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-3">
                         <div className="flex items-start space-x-3">
@@ -335,7 +335,7 @@ function Work() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </section>
                 </div>
 
               <p className='text-lg text-[--text-secondary] leading-relaxed mt-12'>
@@ -350,14 +350,14 @@ function Work() {
                 I enjoy <span className="font-semibold text-white">music, football, and art</span> — not because I'm particularly good at them, but because they bring me joy and help me think differently. I play <span className="font-semibold text-white">guitar and ukulele</span> for myself, kick around a football when I can, and doodle when I need a break from screens.
               </p>
           </div>
-        </div>
+        </section>
 
         <section className="mt-32" id="contact">
           <div className='apple-card bg-gradient-to-br from-[--accent-primary]/20 to-[--accent-purple]/20 border-[--accent-primary]/30 p-12 md:p-16 text-center'>
             <div className='space-y-8 max-w-4xl mx-auto'>
-              <h3 className="text-4xl md:text-5xl font-light text-[--text-primary] leading-tight tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-light text-[--text-primary] leading-tight tracking-tight">
                 Ready to Build Something <span className="gradient-text">Amazing Together?</span>
-              </h3>
+              </h2>
               <p className="text-xl text-[--text-secondary] leading-relaxed max-w-3xl mx-auto">
                 I'm always excited to collaborate on projects that make a real difference. Whether you're looking to build the next big thing or solve a complex problem, let's create something people will love.
               </p>
@@ -400,7 +400,10 @@ function Work() {
             ></div>
             
             {/* Modal Container */}
-            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-enter">
+            <div 
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-enter"
+              onClick={closeModal}
+            >
               {/* Modal Content */}
               <div 
                 className="relative w-full max-w-4xl max-h-[90vh] bg-black/80 border border-gray-700/50 rounded-3xl shadow-2xl overflow-hidden"
@@ -409,6 +412,7 @@ function Work() {
                   WebkitBackdropFilter: 'blur(20px)',
                   background: 'rgba(0, 0, 0, 0.8)'
                 }}
+                onClick={(e) => e.stopPropagation()}
               >
               {/* Modal Header */}
               <div className="p-6 md:p-8 border-b border-gray-700/50 bg-black/40 modal-header-blur">

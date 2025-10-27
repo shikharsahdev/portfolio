@@ -1,10 +1,10 @@
 
 function Landing() {
   return (
-  <section className='header w-full flex justify-center' role="banner">
+  <main className='header w-full flex justify-center' role="main">
     <div className='min-h-screen max-w-6xl box-border px-8 py-4 flex flex-col justify-center md:py-6'>
       <div className='space-y-16 text-center'>
-        <div className='space-y-12'>
+        <header className='space-y-12'>
           <div className="flex justify-center mb-8">
             <div className="w-40 h-40 md:w-48 md:h-48 bg-white/60 rounded-full flex items-end justify-center overflow-hidden pb-0">
               <img 
@@ -22,9 +22,9 @@ function Landing() {
               A <span className="gradient-text font-medium">Product-Focused Engineer</span> building the future through <span className="gradient-text font-medium">technology, design, and storytelling</span>
             </h2>
           </div>
-        </div>
+        </header>
         
-        <div className='max-w-2xl mx-auto space-y-8'>
+        <section className='max-w-2xl mx-auto space-y-8'>
           <p className='text-[--text-secondary] text-xl md:text-2xl leading-loose font-light'>
             From hackathon wins to scaling a company from zero to <span className="text-[--accent-primary] font-medium">$15M ARR</span> — I believe in the power of thoughtful product creation that combines engineering depth with design thinking and user empathy.
           </p>
@@ -34,10 +34,10 @@ function Landing() {
               Currently building the future of events at <span className="text-[--accent-primary]">Goldcast</span>
             </p>
           </div>
-        </div>
+        </section>
       </div>
     </div>
-  </section>
+  </main>
   );  
 }
 
