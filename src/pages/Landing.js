@@ -16,7 +16,7 @@ function Landing() {
           </div>
           <div className="space-y-0 md:space-y-0">
             <h1 className='text-[--text-primary] text-5xl md:text-7xl lg:text-8xl font-light tracking-tight leading-none'>
-              <span className="">I'm</span> <span className="gradient-name font-medium">Shikhar</span>
+              <span className="">Hi, I'm</span> <span className="gradient-name font-medium">Shikhar</span>
             </h1>
             <h2 className='text-[--text-primary] text-2xl md:text-3xl lg:text-4xl font-light tracking-tight leading-tight max-w-4xl mx-auto !mt-6 md:mt-0'>
               A <span className="gradient-text font-medium">Product-Focused Engineer</span> building the future through <span className="gradient-text font-medium">technology, design, and storytelling</span>
