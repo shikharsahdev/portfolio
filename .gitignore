@@ -5,11 +5,8 @@
 /.pnp
 .pnp.js
 
-# testing
-/coverage
-
-# production
-/build
+# local Claude Code settings
+/.claude/settings.local.json
 
 # misc
 .DS_Store

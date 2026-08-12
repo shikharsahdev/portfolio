@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# Shikhar Sahdev — Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A plain static site (HTML/CSS/JS, no framework, no client-side rendering, **no build step**). All content lives directly in [`public/index.html`](public/index.html) so search engines and social crawlers see the full page immediately — no JavaScript execution required.
 
-## Available Scripts
+## Structure
 
-In the project directory, you can run:
+```
+public/
+  index.html              # the entire site — all content, meta tags, JSON-LD
+  assets/
+    css/
+      style.css            # hand-written plain CSS (no compiler)
+    js/
+      main.js               # modal open/close logic
+      starry-background.js  # canvas background animation
+  *.png, *.svg, *.webp    # images, favicon, manifest, robots.txt, sitemap.xml
+```
 
-### `npm start`
+## Scripts
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm install     # installs gh-pages only (dev-time deploy tool, nothing ships to the browser)
+npm start       # serves ./public locally for preview (npx serve)
+npm run deploy  # pushes ./public to the `deployment` branch via gh-pages
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Deployment
 
-### `npm test`
+Unchanged from before: `npm run deploy` pushes the contents of `public/` to the `deployment` branch, which GitHub Pages serves at the custom domain in [`public/CNAME`](public/CNAME).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Editing content
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Since there's no templating, edit the HTML directly in `public/index.html`. The experience cards and their modals are hand-written blocks (search for `data-modal-target` and `id="modal-`) rather than generated from a data array — a few more lines to touch when updating content, but it means the full text is always present in the shipped HTML for SEO.
