@@ -1,7 +1,7 @@
 {
   "short_name": "Shikhar Sahdev",
-  "name": "Shikhar Sahdev - Product-Focused Engineer Portfolio",
-  "description": "Portfolio of Shikhar Sahdev, a product-focused engineer with decade of experience building engaging products; I thrive at the intersection of technology, design and storytelling. Currently building the future of events & content at Goldcast. Founding member who's been part of the 0→15M+ revenue journey.",
+  "name": "Shikhar Sahdev — Founding Engineer & Product Engineer",
+  "description": "Portfolio of Shikhar Sahdev, a product engineer in New Delhi. Founding engineer at Goldcast — built the events platform from zero to $20M ARR and an acquisition by Cvent in December 2025.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -16,9 +16,13 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#000000",
-  "categories": ["portfolio", "developer", "engineer"],
+  "theme_color": "#f4f3ef",
+  "background_color": "#f4f3ef",
+  "categories": [
+    "portfolio",
+    "developer",
+    "engineer"
+  ],
   "lang": "en",
   "orientation": "portrait-primary"
 }
