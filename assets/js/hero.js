@@ -68,10 +68,10 @@
     px = Math.max(-1, Math.min(1, px));
     py = Math.max(-1, Math.min(1, py));
 
-    dest.ry = px * 16;
-    dest.rx = -py * 10;
-    dest.tx = px * 30;
-    dest.ty = py * 18;
+    dest.ry = px * 4;
+    dest.rx = -py * 2.5;
+    dest.tx = px * 7.5;
+    dest.ty = py * 4.5;
     nudge();
   }
 
