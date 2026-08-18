@@ -1,21 +1,7 @@
 # https://www.robotstxt.org/robotstxt.html
+# Static site — everything here is meant to be crawled.
+
 User-agent: *
 Allow: /
 
-# Sitemap location
 Sitemap: https://shikhar.sah.dev/sitemap.xml
-
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-
-# Disallow access to sensitive files
-Disallow: /.env
-Disallow: /package.json
-Disallow: /package-lock.json
-Disallow: /node_modules/
-
-# Allow important files
-Allow: /favicon.ico
-Allow: /manifest.json
-Allow: /robots.txt
-Allow: /sitemap.xml

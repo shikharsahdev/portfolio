@@ -2,14 +2,8 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "portfolio",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["start"],
-      "port": 3000
-    },
-    {
       "name": "static-preview",
-      "runtimeExecutable": "python3",
+      "runtimeExecutable": "/usr/bin/python3",
       "runtimeArgs": ["-m", "http.server", "4173", "--directory", "public"],
       "port": 4173
     }
