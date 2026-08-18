@@ -1,12 +1,17 @@
 /* Hero parallax.
-   Writes four CSS custom properties on .hero; the stylesheet decides what each
+   Writes CSS custom properties on .hero; the stylesheet decides what each
    layer does with them, so this never clobbers the layout transforms
    (translateX(-50%) on the figure, translateY(-50%) on the type).
 
-   Desktop  — pointer position drives rotation + translation.
-   Touch    — scroll position drives a gentler tilt, so there is no permission
-              prompt and nothing depends on the gyroscope.
-   Neither runs when the hero is offscreen or reduced motion is requested. */
+   Two independent effects, both driven through the same eased loop so
+   nothing on a single element snaps while another part of it glides:
+
+   - Pointer tilt (fine pointers only) — desktop mouse-move 3D lean.
+   - Scroll drift (every device) — the headline and figure lag behind the
+     page scroll, capped to a fixed pixel budget rather than a fraction of
+     raw scrollY, so it can't run away on a long page and can't overshoot.
+
+   Reduced-motion and hero-offscreen both zero everything out. */
 (function () {
   var hero = document.querySelector('.hero');
   if (!hero) return;
@@ -14,31 +19,39 @@
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var finePointer = window.matchMedia('(pointer: fine)');
 
-  // current + target values, lerped toward each other each frame
-  // pointer values ease toward their target; scroll values track 1:1, because
-  // easing a scroll-linked offset makes the page feel like it is on elastic
-  var cur = { rx: 0, ry: 0, tx: 0, ty: 0 };
-  var dest = { rx: 0, ry: 0, tx: 0, ty: 0 };
-  var scrollOffset = { sy: 0, sf: 0 };
+  // Every value drives through one lerp so a single element's transform never
+  // mixes an eased component with an instantaneous one — that mismatch is
+  // what reads as jitter, not the scroll input itself.
+  var cur = { rx: 0, ry: 0, tx: 0, ty: 0, sHead: 0, sFig: 0 };
+  var dest = { rx: 0, ry: 0, tx: 0, ty: 0, sHead: 0, sFig: 0 };
   var frame = null;
   var onscreen = true;
 
   var EASE = 0.09;
+  var SCROLL_EASE = 0.10; // a bit heavier than the pointer ease — reinforces the "slower" feel
   var SETTLED = 0.01;
+
+  // Total drift budget in px, reached once the hero has fully scrolled past —
+  // capped, so it can never exceed this regardless of page length. Headline
+  // is the deliberately dramatic one: at a ~750-900px hero height, 320px of
+  // cancellation means it nets out moving at well under half page speed.
+  var HEAD_DRIFT = 320;
+  var FIG_DRIFT = 32;
 
   function paint() {
     var moving = false;
     for (var k in dest) {
+      var ease = (k === 'sHead' || k === 'sFig') ? SCROLL_EASE : EASE;
       var d = dest[k] - cur[k];
-      if (Math.abs(d) > SETTLED) { cur[k] += d * EASE; moving = true; }
+      if (Math.abs(d) > SETTLED) { cur[k] += d * ease; moving = true; }
       else { cur[k] = dest[k]; }
     }
     hero.style.setProperty('--rx', cur.rx.toFixed(3) + 'deg');
     hero.style.setProperty('--ry', cur.ry.toFixed(3) + 'deg');
     hero.style.setProperty('--tx', cur.tx.toFixed(2) + 'px');
     hero.style.setProperty('--ty', cur.ty.toFixed(2) + 'px');
-    hero.style.setProperty('--sy', scrollOffset.sy.toFixed(2) + 'px');
-    hero.style.setProperty('--sf', scrollOffset.sf.toFixed(2) + 'px');
+    hero.style.setProperty('--sy', cur.sHead.toFixed(2) + 'px');
+    hero.style.setProperty('--sf', cur.sFig.toFixed(2) + 'px');
     frame = moving ? requestAnimationFrame(paint) : null;
   }
 
@@ -46,20 +59,19 @@
     if (frame === null) frame = requestAnimationFrame(paint);
   }
 
-  /* ---- desktop: follow the pointer ------------------------------------- */
+  /* ---- desktop: follow the pointer --------------------------------------- */
   function onPointerMove(e) {
-    if (!onscreen) return;
+    if (!onscreen || !finePointer.matches) return;
     var r = hero.getBoundingClientRect();
-    // -1 .. 1 from the centre of the hero
     var px = (e.clientX - r.left) / r.width * 2 - 1;
     var py = (e.clientY - r.top) / r.height * 2 - 1;
     px = Math.max(-1, Math.min(1, px));
     py = Math.max(-1, Math.min(1, py));
 
-    dest.ry = px * 4;     // yaw follows horizontal travel
-    dest.rx = -py * 2.5;    // pitch inverted so it leans toward the cursor
-    dest.tx = px * 7.5;
-    dest.ty = py * 4.5;
+    dest.ry = px * 16;
+    dest.rx = -py * 10;
+    dest.tx = px * 30;
+    dest.ty = py * 18;
     nudge();
   }
 
@@ -68,26 +80,24 @@
     nudge();
   }
 
-  /* ---- touch: drive it from scroll instead ------------------------------ */
-  // Scroll parallax runs on every device: the headline is furthest "back", so
-  // it travels up more slowly than the page — positive translate cancels part
-  // of the scroll. The figure lags a little less. Both are written as separate
-  // vars so the pointer tilt above can compose with them.
-  function onScroll() {
-    var y = window.scrollY || window.pageYOffset || 0;
-    scrollOffset.sy = y * 0.45;   // headline holds back the most
-    scrollOffset.sf = y * 0.18;   // figure drifts a touch
-
-    if (!finePointer.matches && onscreen) {
-      // touch devices get their tilt from scroll instead of a pointer
-      var r = hero.getBoundingClientRect();
-      var p = Math.max(-1, Math.min(1, -r.top / (r.height || 1)));
-      dest.rx = p * 9;
-      dest.ry = 0;
-      dest.tx = 0;
-      dest.ty = p * -10;
-    }
+  /* ---- scroll: headline + figure lag behind, capped -------------------- */
+  // Layout is read once per animation frame here, not once per 'scroll'
+  // event — reading getBoundingClientRect() straight out of the scroll
+  // handler forces a synchronous layout on every event during a fling,
+  // which is its own source of visible stutter on mobile.
+  var scrollQueued = false;
+  function readScroll() {
+    scrollQueued = false;
+    if (!hero.isConnected) return;
+    var r = hero.getBoundingClientRect();
+    // 0 at the top of the hero's transit, 1 once it has fully scrolled by
+    var progress = Math.max(0, Math.min(1, -r.top / (r.height || 1)));
+    dest.sHead = progress * HEAD_DRIFT;
+    dest.sFig = progress * FIG_DRIFT;
     nudge();
+  }
+  function onScroll() {
+    if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(readScroll); }
   }
 
   var boundPointer = false;
@@ -112,20 +122,21 @@
     if (wantScroll && !boundScroll) {
       window.addEventListener('scroll', onScroll, { passive: true });
       boundScroll = true;
-      onScroll();
+      readScroll();
     }
     if (!wantScroll && boundScroll) {
       window.removeEventListener('scroll', onScroll);
       boundScroll = false;
+      dest.sHead = dest.sFig = 0;
+      nudge();
     }
 
     if (reduceMotion.matches) {
-      dest.rx = dest.ry = dest.tx = dest.ty = 0;
+      dest.rx = dest.ry = dest.tx = dest.ty = dest.sHead = dest.sFig = 0;
       nudge();
     }
   }
 
-  // stop reacting once the hero has scrolled out of view
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {
       onscreen = entries[0].isIntersecting;
@@ -133,7 +144,6 @@
     }, { threshold: 0 }).observe(hero);
   }
 
-  // re-evaluate if the user plugs in a mouse or flips the motion preference
   ['change'].forEach(function (evt) {
     if (finePointer.addEventListener) finePointer.addEventListener(evt, bind);
     if (reduceMotion.addEventListener) reduceMotion.addEventListener(evt, bind);
@@ -141,4 +151,23 @@
 
   hero.classList.add('hero--parallax');
   bind();
+
+  /* ---- intro reveal: fades and rises into place as it enters view ------- */
+  var intro = document.getElementById('intro');
+  if (intro && !reduceMotion.matches) {
+    intro.classList.add('reveal-in');
+    if ('IntersectionObserver' in window) {
+      var introObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            introObserver.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+      introObserver.observe(intro);
+    } else {
+      intro.classList.add('is-in');
+    }
+  }
 })();
