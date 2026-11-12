@@ -22,21 +22,21 @@
   // Every value drives through one lerp so a single element's transform never
   // mixes an eased component with an instantaneous one — that mismatch is
   // what reads as jitter, not the scroll input itself.
-  var cur = { rx: 0, ry: 0, tx: 0, ty: 0, sHead: 0, sFig: 0 };
-  var dest = { rx: 0, ry: 0, tx: 0, ty: 0, sHead: 0, sFig: 0 };
+  var cur = { rx: 0, ry: 0, tx: 0, ty: 0, sHead: 0, sFig: 0, zFig: 0, zHead: 0 };
+  var dest = { rx: 0, ry: 0, tx: 0, ty: 0, sHead: 0, sFig: 0, zFig: 0, zHead: 0 };
   var frame = null;
   var onscreen = true;
 
-  var EASE = 0.09;
-  var SCROLL_EASE = 0.10; // a bit heavier than the pointer ease — reinforces the "slower" feel
+  var EASE = 0.085;
+  var SCROLL_EASE = 0.085;
   var SETTLED = 0.01;
 
   // Total drift budget in px, reached once the hero has fully scrolled past —
   // capped, so it can never exceed this regardless of page length. Headline
   // is the deliberately dramatic one: at a ~750-900px hero height, 320px of
   // cancellation means it nets out moving at well under half page speed.
-  var HEAD_DRIFT = 320;
-  var FIG_DRIFT = 32;
+  var HEAD_DRIFT = 220;
+  var FIG_DRIFT = 22;
 
   function paint() {
     var moving = false;
@@ -52,6 +52,8 @@
     hero.style.setProperty('--ty', cur.ty.toFixed(2) + 'px');
     hero.style.setProperty('--sy', cur.sHead.toFixed(2) + 'px');
     hero.style.setProperty('--sf', cur.sFig.toFixed(2) + 'px');
+    hero.style.setProperty('--fz', cur.zFig.toFixed(2) + 'px');
+    hero.style.setProperty('--hz', cur.zHead.toFixed(2) + 'px');
     frame = moving ? requestAnimationFrame(paint) : null;
   }
 
@@ -68,19 +70,21 @@
     px = Math.max(-1, Math.min(1, px));
     py = Math.max(-1, Math.min(1, py));
 
-    dest.ry = px * 4;
-    dest.rx = -py * 2.5;
-    dest.tx = px * 7.5;
-    dest.ty = py * 4.5;
-    nudge();
+    hero.style.setProperty('--scene-x', (-px * 5).toFixed(2) + 'px');
+    hero.style.setProperty('--scene-y', (-py * 3).toFixed(2) + 'px');
+
+    hero.style.setProperty('--wall-rot', (px * 1.2).toFixed(2) + 'deg');
+    hero.style.setProperty('--wall-y', (px * -2.5).toFixed(2) + 'deg');
   }
 
   function onPointerLeave() {
-    dest.rx = dest.ry = dest.tx = dest.ty = 0;
-    nudge();
+    hero.style.setProperty('--scene-x', '0px');
+    hero.style.setProperty('--scene-y', '0px');
+    hero.style.setProperty('--wall-rot', '0deg');
+    hero.style.setProperty('--wall-y', '0deg');
   }
 
-  /* ---- scroll: headline + figure lag behind, capped -------------------- */
+  /* ---- scroll: keep the static hero artwork anchored ------------------- */
   // Layout is read once per animation frame here, not once per 'scroll'
   // event — reading getBoundingClientRect() straight out of the scroll
   // handler forces a synchronous layout on every event during a fling,
@@ -92,9 +96,7 @@
     var r = hero.getBoundingClientRect();
     // 0 at the top of the hero's transit, 1 once it has fully scrolled by
     var progress = Math.max(0, Math.min(1, -r.top / (r.height || 1)));
-    dest.sHead = progress * HEAD_DRIFT;
-    dest.sFig = progress * FIG_DRIFT;
-    nudge();
+    dest.sHead = dest.sFig = 0;
   }
   function onScroll() {
     if (!scrollQueued) { scrollQueued = true; requestAnimationFrame(readScroll); }
@@ -132,7 +134,8 @@
     }
 
     if (reduceMotion.matches) {
-      dest.rx = dest.ry = dest.tx = dest.ty = dest.sHead = dest.sFig = 0;
+      dest.rx = dest.ry = dest.tx = dest.ty = dest.sHead = dest.sFig = dest.zFig = dest.zHead = 0;
+      hero.style.setProperty('--wall-rot', '0deg');
       nudge();
     }
   }
