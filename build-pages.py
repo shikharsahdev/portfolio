@@ -5,24 +5,24 @@ import os
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'public')
 SITE = 'https://shikhar.sah.dev'
-V = '13'
+V = '28'
 
 CASES = [
-    ('01', 'Goldcast', 'goldcast', '/gc.svg', 'Founding Engineer & Product-Focused Engineer',
-     'Aug 2020 — Present', 'Employee #2 at a pre-product startup. Built the events platform from scratch, scaled it to $20M ARR, and saw it acquired by Cvent in December 2025.'),
+    ('01', 'Goldcast', 'goldcast', '/gc.svg', 'Founding Engineer · Product & Engineering',
+     'Aug 2020 — Dec 2025', 'Helped shape Goldcast’s Events app, then led it for 2–3 years: its attendee experience, WebRTC video, and Backstage workflow for speakers and producers.'),
     ('02', 'Shipsy', 'shipsy', '/shipsy.webp', 'Full-Stack Developer',
-     'Oct 2019 — Aug 2020', 'Pricing modules for DTDC, a returns and settlements system built from scratch, and last-mile tracking that unlocked Domino’s pan-India contract.'),
+     'Oct 2019 — Aug 2020', 'Built customer-focused logistics features across DTDC pricing, returns and settlements, and configurable last-mile tracking for a pan-India Domino’s contract.'),
     ('03', 'ICMR & AITSC', 'icmr-aitsc', '/aiimsxicmr.webp', 'Software Engineer, Research Collaboration',
-     '2016 — 2018', 'Solely built and deployed digital trauma-patient enrollment across five Indian government hospitals, replacing pen-and-paper.'),
+     '2016 — 2018', 'Built and deployed a digital trauma-patient enrollment system across five government hospitals, including on-site infrastructure and staff training.'),
     ('04', 'Samsung R&D', 'samsung', '/samsung.svg', 'Software Engineer, Security Systems',
-     '2018 — 2019', 'Bootloader and data security modules across Samsung chipsets, plus ML-based privacy tools and 5G configuration systems.'),
+     '2018 — 2019', 'Worked on bootloader and data-security modules across Samsung chipsets, with contributions to privacy tooling and 5G configuration systems.'),
 ]
 
 NAV = '''    <header class="topbar">
       <div class="topbar-inner">
         <div class="brand">
-          <a class="mark" href="/" aria-label="Shikhar Sahdev — home">SS</a>
-          <span class="label loc">New Delhi, India</span>
+          <a class="mark" href="/" aria-label="Shikhar Sahdev — home"><img src="/assets/img/avatar-happy.webp" alt="" width="40" height="40" /></a>
+          <span class="label loc">Bangalore, India</span>
         </div>
         <nav aria-label="Primary">
           <a href="/work/">Work</a>
@@ -43,10 +43,15 @@ NAV = '''    <header class="topbar">
 
 FOOTER = '''    <footer class="footer" id="contact">
       <div class="shell">
-        <h2>Let's build something worth using</h2>
-        <div class="footer-links">
-          <a href="mailto:shikharsahdev@gmail.com">Email me</a>
-          <a href="https://linkedin.com/in/shikharsahdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <div class="footer-contact">
+          <div class="footer-intro">
+            <img class="footer-avatar" src="/assets/img/avatar-happy.webp" alt="" width="48" height="48" />
+            <h2>Want to chat?</h2>
+          </div>
+          <div class="footer-links">
+            <a href="mailto:shikharsahdev@gmail.com">Email me</a>
+            <a href="https://linkedin.com/in/shikharsahdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
         </div>
         <nav class="footer-nav" aria-label="Footer">
           <a href="/">Home</a>
@@ -57,21 +62,20 @@ FOOTER = '''    <footer class="footer" id="contact">
           <a href="/work/icmr-aitsc/">ICMR &amp; AITSC</a>
           <a href="/work/samsung/">Samsung R&amp;D</a>
         </nav>
-        <div class="footer-mark">SS</div>
         <p class="footer-fine">&copy; 2026 Shikhar Sahdev</p>
       </div>
     </footer>
 '''
 
 HEAD_COMMON = f'''    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/assets/img/avatar-happy.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f4f3ef" />
-    <link rel="apple-touch-icon" href="/logo192.png" />
+    <meta name="theme-color" content="#fae0c8" />
+    <link rel="apple-touch-icon" href="/assets/img/avatar-happy.png" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Archivo+Black&family=Big+Shoulders+Display:wght@800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/assets/css/style.css?v={V}" />
 '''
 
@@ -103,7 +107,7 @@ def work_index():
   <head>
 {HEAD_COMMON}
     <title>Work — Case Studies | Shikhar Sahdev</title>
-    <meta name="description" content="Case studies by Shikhar Sahdev — founding engineer at Goldcast (zero to a Cvent acquisition), plus Shipsy, ICMR digital health and Samsung R&amp;D." />
+    <meta name="description" content="Explore product engineering work by Shikhar Sahdev: leading Goldcast’s Events app, building logistics products at Shipsy, and shipping digital health and security systems." />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Shikhar Sahdev" />
     <link rel="canonical" href="{SITE}/work/" />
@@ -111,7 +115,7 @@ def work_index():
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{SITE}/work/" />
     <meta property="og:title" content="Work — Case Studies | Shikhar Sahdev" />
-    <meta property="og:description" content="Case studies from a decade of product engineering — Goldcast, Shipsy, ICMR &amp; AITSC, and Samsung R&amp;D." />
+    <meta property="og:description" content="Explore product engineering work by Shikhar Sahdev: leading Goldcast’s Events app, building logistics products at Shipsy, and shipping digital health and security systems." />
     <meta property="og:image" content="{SITE}/assets/img/og-card.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -121,7 +125,7 @@ def work_index():
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:site" content="@shikharsahdev" />
     <meta property="twitter:title" content="Work — Case Studies | Shikhar Sahdev" />
-    <meta property="twitter:description" content="Case studies from a decade of product engineering." />
+    <meta property="twitter:description" content="Explore Shikhar Sahdev’s work leading products and building across real-time events, logistics, digital health and security." />
     <meta property="twitter:image" content="{SITE}/assets/img/og-card.jpg" />
 
     <script type="application/ld+json">
@@ -130,7 +134,7 @@ def work_index():
       "@type": "CollectionPage",
       "name": "Work — Case Studies",
       "url": "{SITE}/work/",
-      "description": "Case studies from a decade of product engineering by Shikhar Sahdev.",
+      "description": "Case studies of user-centered products built by Shikhar Sahdev, combining product direction with engineering craft.",
       "inLanguage": "en-US",
       "mainEntity": {{
         "@type": "ItemList",
@@ -165,7 +169,7 @@ def work_index():
 
           <div class="section-head">
             <h1>Selected<br />Work</h1>
-            <p>A decade of building products — from a two-person startup I helped carry to a Cvent acquisition, to trauma registries in Indian government hospitals.</p>
+            <p>Product thinking with engineering depth: leading an events app, building logistics products, digitizing hospital workflows, and shipping secure systems.</p>
           </div>
 
 {chr(10).join(rows)}
@@ -178,7 +182,8 @@ def work_index():
         </div>
       </section>
     </main>
-{FOOTER}  </body>
+{FOOTER}    <script src="/assets/js/scroll-leaf.js?v=1" defer></script>
+  </body>
 </html>
 '''
 
@@ -209,7 +214,8 @@ def not_found():
         </div>
       </section>
     </main>
-{FOOTER}  </body>
+{FOOTER}    <script src="/assets/js/scroll-leaf.js?v=1" defer></script>
+  </body>
 </html>
 '''
 

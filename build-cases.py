@@ -7,69 +7,72 @@ The four pages share one template, so layout and metadata changes stay in sync.
 
 import os
 import html
+import json
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'public')
 SITE = 'https://shikhar.sah.dev'
-ASSET_V = '13'
+ASSET_V = '28'
 
 CASES = [
     {
         'slug': 'goldcast',
-        'short_title': 'Goldcast — Founding Engineer to Acquisition',
-        'shot_w': 1600, 'shot_h': 898,
+        'short_title': 'Goldcast Events Platform — Product & Engineering',
+        'shot_w': 1272, 'shot_h': 786,
         'logo_w': 64, 'logo_h': 64,
-        'published': '2024-01-15', 'modified': '2026-08-14',
+        'published': '2024-01-15', 'modified': '2026-11-12',
         'no': '01',
         'name': 'Goldcast',
         'logo': '/gc.svg',
-        'role': 'Founding Engineer & Product-Focused Engineer',
-        'dates': 'Aug 2020 — Present',
+        'role': 'Founding Engineer · Product & Engineering',
+        'dates': 'Aug 2020 — Dec 2025',
         'dates_note': 'Goldcast was acquired by Cvent in December 2025',
         'dates_iso': '2020-08',
         'category': 'Zero to acquisition',
-        'tag': 'Founding Engineer',
+        'tag': 'Product & Engineering',
         'org_url': 'https://goldcast.io',
-        'summary': 'Employee number two at a pre-product startup. I built the events platform from nothing, it became the company’s primary revenue engine at $20M ARR, and in December 2025 Goldcast was acquired by Cvent.',
-        'meta_desc': 'Founding engineer at Goldcast: built the events platform from zero as employee number two, scaled it to $20M ARR, and saw it acquired by Cvent in 2025.',
-        'shot': '/assets/img/goldcast-platform.webp',
-        'shot_alt': 'The Goldcast events platform, showing a live multi-speaker stage with chat and agenda panels',
-        'shot_caption': 'Goldcast’s events platform — live stage, chat, agenda and breakouts running on WebRTC.',
+        'summary': 'I helped shape Goldcast’s Events app, then led it for 2–3 years as it became the company’s core product. My work spanned the attendee experience, WebRTC live video, and introducing Backstage for speakers and producers.',
+        'meta_desc': 'Shikhar Sahdev helped shape Goldcast’s Events app and led it for 2–3 years, introducing Backstage and owning WebRTC live audio/video.',
+        'shot': 'https://www.goldcast.io/images/platform/seamless_speaker_experience.webp',
+        'shot_alt': 'Goldcast Events product showing speaker layout controls alongside the private Backstage area for event speakers',
+        'shot_caption': 'Goldcast Events: speaker layout controls and Backstage in one view.',
+        'sources': [
+            ('Goldcast Events platform', 'https://www.goldcast.io/platform'),
+            ('MarDreamin’ customer story', 'https://www.goldcast.io/customer-stories/mardreamin'),
+            ('Cvent acquisition announcement', 'https://www.cvent.com/en/press-release/cvent-expands-ai-powered-event-marketing-capabilities-strategic-acquisition-goldcast'),
+        ],
         'metrics': [
-            ('Acquired', 'by Cvent, Dec 2025', 'the platform I built from zero became the reason for the deal'),
-            ('$20M', 'ARR from zero', 'the company’s primary revenue engine'),
-            ('2nd', 'Employee', 'joined pre-product — there was no product to work on yet'),
+            ('Events', 'Core platform', 'the product at the center of Goldcast’s business'),
+            ('Studio', 'On-demand video', 'extending the product beyond live events'),
+            ('Content Lab', 'AI creation tools', 'video editing and generative page building'),
         ],
         'overview': [
-            'I joined Goldcast as the <b>second employee</b>, before there was a product. I designed and built the entire events platform — from UX through to implementation — and it became the company’s primary revenue engine, carrying it from <b>zero to $20M ARR</b>.',
-            'In <b>December 2025 Goldcast was acquired by Cvent</b>, the event-management company backed by Blackstone that serves around 30,000 customers and most of the Fortune 100. The platform I built from nothing is what that deal was for. Along the way Goldcast was named to <b>Deloitte’s 2025 Technology Fast 500</b>, and the product ran events for teams at OpenAI, Canva, Mailchimp, Box, Intercom, LG and Zuora.',
-            'The core of the work was real-time: architecting audio/video systems on <b>WebRTC</b> that hold up for thousands of concurrent attendees, including inside locked-down enterprise networks. Alongside that I designed a fully customizable theming architecture no competitor offered, letting organizers match their own brand end to end.',
-            'Over the past two years I moved into a broader leadership role — guiding multiple teams, mentoring engineers, and shaping architecture and product strategy across business lines.',
+            'I joined Goldcast as its <b>second employee</b>, before there was a product. I helped build the Events app into the company’s core product and main business, then led the app for <b>two to three years</b>. I moved between product direction, design decisions, and hands-on engineering to shape an end-to-end event experience.',
+            'I helped define the product’s voice and how the experience worked, from attendee flows and event theming to the private <b>Backstage</b> concept for speakers and producers. I led the team’s work on hybrid-event flows and digital check-in for in-person attendees. As the company grew, I mentored engineers, guided teams, and shaped architecture and product strategy across business lines.',
+            'I owned Goldcast’s <b>WebRTC</b> audio/video experience over multiple years. The work combined real-time systems engineering with a product goal: make a live event feel dependable and simple for thousands of attendees, including people joining through restrictive enterprise networks.',
+            'I also led teams across major extensions to the platform. The <b>Recording Studio</b> was a substantial, multi-team effort that brought asynchronous video creation into Goldcast. I helped teams deliver Content Lab’s transcript-aware <b>AI Video Editor</b> and its <b>Generative Page Builder</b>, carrying product ideas through design and engineering. Goldcast’s platform became its primary revenue engine, reaching <b>$20M ARR</b> before Cvent acquired the company in December 2025. Goldcast was named to <b>Deloitte’s 2025 Technology Fast 500</b> and supported events for teams at OpenAI, Canva, Mailchimp, Box, Intercom, LG, and Zuora. Explore the <a href="https://www.goldcast.io/platform" target="_blank" rel="noopener noreferrer">Goldcast Events platform</a>, its <a href="https://www.goldcast.io/customer-stories/mardreamin" target="_blank" rel="noopener noreferrer">MarDreamin’ customer story</a>, and <a href="https://www.cvent.com/en/press-release/cvent-expands-ai-powered-event-marketing-capabilities-strategic-acquisition-goldcast" target="_blank" rel="noopener noreferrer">Cvent’s acquisition announcement</a>.',
+            'As one example of the product’s customer impact, Goldcast’s published <a href="https://www.goldcast.io/customer-stories/mardreamin" target="_blank" rel="noopener noreferrer">MarDreamin’ story</a> reports that the event team saved more than 600 hours and reduced attendee technical-support requests by 89% after switching to the platform.',
         ],
         'sections': [
-            ('What I built', [
-                ('Real-time AV infrastructure', 'Architected WebRTC-based audio and video supporting thousands of concurrent attendees, with reliable streaming inside enterprise networks.'),
-                ('Theming architecture', 'A frontend system allowing complete event-brand customization without a performance cost — a capability no competitor offered.'),
-                ('Hybrid events', 'Infrastructure supporting virtual and in-person attendees in the same event, interacting seamlessly.'),
-                ('Digital check-in', 'Authenticator- and code-based check-in systems for on-site attendees.'),
-                ('AI initiatives', 'A transcript-aware AI Video Editor and a Generative Page Builder Agent.'),
-                ('Recording Studio', 'Extended the platform beyond live events into asynchronous video creation.'),
-            ]),
-            ('Hard problems', [
-                ('Enterprise networks block AV', 'Solved streaming inside restrictive corporate firewalls using the Agora SDK plus cloud proxy solutions.'),
-                ('Customization vs. performance', 'Built a theming system permitting complete UI customization while keeping render performance intact.'),
-                ('Two audiences, one event', 'Architected hybrid infrastructure so virtual and physical attendees share a single coherent experience.'),
-                ('Editing video automatically', 'Developed an AI pipeline that analyses transcripts and makes automated editing decisions.'),
+            ('Selected contributions', [
+                ('Led the Events app', 'Helped shape Goldcast’s core product, then led product direction and delivery for two to three years.'),
+                ('Shaped the event experience', 'Set product voice and interaction patterns across attendee flows, and led the team’s work on customizable event theming.'),
+                ('Introduced Backstage', 'Led the introduction of a private space where speakers and producers could prepare, coordinate, and move into a live session.'),
+                ('Owned WebRTC over the long haul', 'Solely built and maintained Goldcast’s real-time audio/video experience with WebRTC, Agora, and cloud proxy solutions, including support for locked-down enterprise networks.'),
+                ('Brought virtual and in-person together', 'Led team efforts on hybrid event flows and digital check-in, including authenticator- and code-based entry for on-site attendees.'),
+                ('Led the Recording Studio', 'Guided a substantial, multi-team effort to extend Goldcast into asynchronous video creation.'),
+                ('Helped deliver Content Lab’s AI Video Editor', 'Worked with the team on a transcript-aware editor that made recorded content easier to shape and reuse.'),
+                ('Helped deliver the Generative Page Builder', 'Partnered across product and engineering to bring AI-assisted event page creation into the platform.'),
             ]),
         ],
-        'takeaway': 'How to take a product from an empty repository to an acquisition — building the thing, scaling it to $20M ARR, and leading the teams that carried it there.',
-        'stack': ['React', 'WebRTC', 'Agora SDK', 'Node.js', 'Real-time systems', 'Frontend architecture', 'AI/LLM tooling'],
+        'takeaway': 'I bring product thinking and engineering craft to the same table: understand the people using a product, shape the experience around them, and build the systems that make it work.',
+        'stack': ['Product direction', 'Experience design', 'React', 'WebRTC', 'Agora SDK', 'Node.js', 'Real-time systems', 'AI/LLM tooling'],
     },
     {
         'slug': 'shipsy',
         'short_title': 'Shipsy — Full-Stack Developer',
-        'shot_w': 1600, 'shot_h': 877,
+        'shot_w': 1920, 'shot_h': 1080,
         'logo_w': 64, 'logo_h': 64,
-        'published': '2024-01-15', 'modified': '2026-08-14',
+        'published': '2024-01-15', 'modified': '2026-11-12',
         'no': '02',
         'name': 'Shipsy',
         'logo': '/shipsy.webp',
@@ -79,37 +82,34 @@ CASES = [
         'category': 'Growth phase',
         'tag': 'Ownership & Scale',
         'org_url': 'https://shipsy.io',
-        'summary': 'Became star performer handling critical projects for major clients like DTDC, and built the systems that unlocked pan-India contracts.',
-        'meta_desc': 'How Shikhar Sahdev built pricing, returns and last-mile tracking at Shipsy — unlocking Domino’s pan-India contract and Middle East expansion.',
-        'shot': '/assets/img/shipsy-platform.webp',
-        'shot_alt': 'The Shipsy smart logistics management platform marketing site',
-        'shot_caption': 'Shipsy’s logistics management platform — the product I built pricing, returns and tracking into.',
+        'summary': 'My first startup: I worked across customer-critical logistics products, built a returns system from scratch, and helped ship contactless delivery in two weeks during COVID.',
+        'meta_desc': 'At his first startup, Shikhar Sahdev worked across customer-critical logistics products, built a returns system from scratch, and helped deliver contactless delivery in two weeks during COVID.',
+        'shot': 'https://shipsy.io/wp-content/uploads/2023/03/Hero4_SIM-based-Tracking.png',
+        'shot_alt': 'Shipsy last-mile delivery tracking map showing delivery locations in southern India',
+        'shot_caption': 'Shipsy’s SIM-based last-mile tracking feature, shown in a company product update.',
+        'sources': [
+            ('Shipsy SIM-based tracking update', 'https://shipsy.io/product-updates/have-better-visibility-over-last-mile-deliveries-through-sim-based-tracking/'),
+            ('DTDC Shipsy case study', 'https://shipsy.io/casestudies/dtdc-digitizes-97-last-mile-transactions-and-soars-customer-experiences/'),
+        ],
         'metrics': [
-            ('DTDC', 'Pricing modules', 'built for one of India’s largest logistics players'),
-            ('Pan-India', 'Domino’s contract', 'unlocked by a generic last-mile tracking solution'),
-            ('RTL/LTR', 'Middle East launch', 'established the region as a new business hub'),
+            ('New pace', 'From Samsung to startup', 'more ownership, exposure, and room to grow'),
+            ('Many hats', 'Product to engineering', 'working across customer needs and the stack'),
         ],
         'overview': [
-            'I became the star performer within months and was trusted with the projects that mattered most commercially. I handled pricing modules for <b>DTDC</b>, one of India’s biggest logistics players, and built a complex returns and settlements system the company had never supported before.',
-            'The highest-leverage piece was a <b>generic last-mile tracking solution</b> — customizable enough to serve any client, which unlocked Domino’s pan-India contract and could scale to McDonald’s, Swiggy and Zomato without a rewrite.',
-            'During COVID I built contactless delivery workflows, and created RTL/LTR compatible solutions for Middle East expansion — establishing Shipsy’s presence in that region.',
+            'After Samsung, where I had started to feel stagnant, Shipsy was a big change of pace: my <b>first startup</b>, a fast-growing team, and the chance to take on a much wider range of work. I loved the energy and the exposure. I could move between understanding customer needs, shaping product behavior, and working across the front end and back end. One of the largest clients I supported was <b>DTDC</b>, where I worked on pricing and built a returns-and-settlements product from scratch across payments and the full order lifecycle.',
+            'When COVID created an urgent need for safer handovers, I worked with the team to get contactless delivery out in about <b>two weeks</b>—a fast response for a large, established logistics application.',
+            'I also contributed to a reusable last-mile tracking effort designed to adapt to different client operations, as well as right-to-left and left-to-right support for regional expansion. The experience connected naturally with what I had been doing since school: building products, learning by making, and taking an idea through to something people could use. Shipsy’s <a href="https://shipsy.io/product-updates/have-better-visibility-over-last-mile-deliveries-through-sim-based-tracking/" target="_blank" rel="noopener noreferrer">last-mile tracking product update</a> and <a href="https://shipsy.io/casestudies/dtdc-digitizes-97-last-mile-transactions-and-soars-customer-experiences/" target="_blank" rel="noopener noreferrer">customer story</a> show the broader product and customer context.',
         ],
         'sections': [
-            ('What I built', [
-                ('Pricing modules for DTDC', 'Handled pricing for one of India’s biggest logistics players.'),
-                ('Returns & settlements', 'A complex system from scratch, covering payments, settlements and the full order lifecycle.'),
-                ('Generic last-mile tracking', 'A customizable tracking product that unlocked Domino’s pan-India contract and scaled to other clients.'),
-                ('Middle East platform', 'RTL/LTR compatible logistics platform enabling regional expansion.'),
-                ('Contactless delivery', 'COVID-era workflows for safe, no-contact handover.'),
-            ]),
-            ('Hard problems', [
-                ('One product, many clients', 'Designed the tracking solution generically, with a customizable UI, so McDonald’s, Swiggy and Zomato could be served from the same base.'),
-                ('Returns are a lifecycle, not a screen', 'Handled payments, settlements and order state across the whole return journey.'),
-                ('Right-to-left is not a CSS flag', 'Built genuine RTL/LTR support for international market expansion.'),
-                ('Safety under constraint', 'Architected contactless workflows that met COVID-19 compliance without breaking existing operations.'),
+            ('Selected contributions', [
+                ('Customer-critical pricing work', 'Worked across front end and back end on pricing modules for major logistics clients, including DTDC.'),
+                ('Returns and settlements from scratch', 'Built a new workflow connecting payments, settlements, and order state across the complete returns lifecycle.'),
+                ('Contactless delivery in two weeks', 'Worked with the team to deliver a no-contact handover flow quickly in response to COVID-era needs.'),
+                ('Contributed to reusable last-mile tracking', 'Worked with the team on a configurable tracking experience designed to adapt to different client operations.'),
+                ('Regional language direction', 'Contributed right-to-left and left-to-right support as Shipsy expanded into the Middle East.'),
             ]),
         ],
-        'takeaway': 'How to become a star performer by taking ownership of critical projects, building solutions generic enough to scale, and expanding a product into new markets.',
+        'takeaway': 'Shipsy gave me the pace and breadth I was looking for: real customer problems, room to wear many hats, and the chance to bring the product-building instinct I had developed in school into a fast-growing team.',
         'stack': ['Full-stack', 'JavaScript', 'Node.js', 'Logistics systems', 'i18n / RTL', 'Payments & settlements'],
     },
     {
@@ -117,7 +117,7 @@ CASES = [
         'short_title': 'ICMR & AITSC — Software Engineer',
         'shot_w': 647, 'shot_h': 300,
         'logo_w': 647, 'logo_h': 300,
-        'published': '2024-01-15', 'modified': '2026-08-14',
+        'published': '2024-01-15', 'modified': '2026-11-12',
         'no': '03',
         'name': 'ICMR & AITSC',
         'logo': '/aiimsxicmr.webp',
@@ -127,34 +127,31 @@ CASES = [
         'category': 'Impact work',
         'tag': 'Real Impact',
         'org_url': 'https://icmr.gov.in',
-        'summary': 'Solely built digital trauma-patient enrollment systems for 5 government hospitals across India, moving them from pen-and-paper to digital.',
-        'meta_desc': 'How Shikhar Sahdev single-handedly built and deployed digital trauma-patient enrollment systems across five Indian government hospitals with ICMR and AIIMS.',
+        'summary': 'Built a digital trauma-patient enrollment system end to end, then deployed it and trained staff across five government hospitals.',
+        'meta_desc': 'Shikhar Sahdev built and deployed a digital trauma-patient enrollment system across five Indian government hospitals, including on-site servers and staff training.',
         'shot': None,
+        'sources': [
+            ('ICMR Annual Report 2017–18', 'https://www.icmr.gov.in/icmrobject/custom_data/pdf/annual-reports/ICMR_AR_English_2017-18_final.pdf'),
+            ('AIIMS research paper on trauma registry work', 'https://www.aiims.edu/images/pdf/library/Article-August19-22-7-20.pdf'),
+        ],
         'metrics': [
             ('5', 'Government hospitals', 'visited in person and ramped onto the system'),
             ('Solo', 'Build & deploy', 'sole engineer, from software to physical servers'),
-            ('Paper → digital', 'Enrollment', 'first digital trauma registry for these hospitals'),
+            ('Paper → digital', 'Trauma intake', 'a digital workflow rolled out across all five sites'),
         ],
         'overview': [
-            'I solely built the digital trauma-patient enrollment system that moved government hospitals off pen-and-paper. This was not just an application — I was handed <b>physical servers</b> at their locations, connected them to the internet, and made the system reachable and usable for hospital staff.',
-            'I then personally visited and ramped up users at <b>5 different government hospitals</b> across India, all with high trauma-patient volumes. Training staff with widely varying technical confidence was as much of the job as the code.',
-            'The project succeeded and set a path for Indian hospitals — especially government hospitals — to adopt digital enrollment practices.',
+            'I was the sole engineer building the digital trauma-patient enrollment system that moved five government hospitals from paper intake to a usable on-site workflow. I owned the full build, from the data model and staff-facing interface to physical servers and network setup.',
+            'I then visited all five hospitals to install the system, train staff, and support the rollout. The product had to work with sensitive patient information, local infrastructure, and users with very different levels of technical confidence. The ICMR and AIIMS publications linked here provide related trauma-registry program context.',
         ],
         'sections': [
-            ('What I built', [
-                ('Trauma-patient enrollment system', 'Designed and built the whole thing solo, from data model to interface.'),
-                ('On-site server infrastructure', 'Deployed physical servers at hospital sites and connected them to the internet.'),
-                ('Rollout across 5 hospitals', 'Visited each hospital in person, trained staff and ramped real usage.'),
-                ('A template for digital health', 'Laid groundwork for wider digital enrollment adoption in Indian government hospitals.'),
-            ]),
-            ('Hard problems', [
-                ('Security in a hospital network', 'Built secure patient enrollment for government hospital networks handling sensitive medical data.'),
-                ('Infrastructure with no ops team', 'Deployed and configured physical server hardware myself, on site.'),
-                ('Users, not developers', 'Designed an interface usable by hospital staff with a wide range of technical skill.'),
-                ('Medical data compliance', 'Met data security and regulatory requirements for patient records.'),
+            ('Selected contributions', [
+                ('Built the enrollment system solo', 'Designed the data model and staff-facing workflow for digital trauma-patient intake.'),
+                ('Installed the infrastructure', 'Deployed physical servers, connected them to the internet, and made the system usable at each site.'),
+                ('Handled sensitive hospital data', 'Built for patient privacy and security in real government-hospital environments.'),
+                ('Rolled out across five hospitals', 'Visited sites, trained staff with varied technical experience, and supported adoption in daily work.'),
             ]),
         ],
-        'takeaway': 'How to build systems that create real-world impact, work inside government institutions, and move an organisation from legacy process to digital.',
+        'takeaway': 'Good product work includes the whole path to use: the interface, the infrastructure it depends on, and the people bringing it into their daily work.',
         'stack': ['Full-stack', 'Server deployment', 'Healthcare data', 'Security & compliance', 'On-site training'],
     },
     {
@@ -162,7 +159,7 @@ CASES = [
         'short_title': 'Samsung R&D — Security Engineer',
         'shot_w': 240, 'shot_h': 80,
         'logo_w': 240, 'logo_h': 80,
-        'published': '2024-01-15', 'modified': '2026-08-14',
+        'published': '2024-01-15', 'modified': '2026-11-12',
         'no': '04',
         'name': 'Samsung R&D',
         'logo': '/samsung.svg',
@@ -175,29 +172,27 @@ CASES = [
         'summary': 'Built bootloader and data security modules across Samsung chipsets, contributing to ML-based privacy tools and 5G configuration systems.',
         'meta_desc': 'Shikhar Sahdev’s work at Samsung R&D on bootloader and data security modules across chipsets, ML-based privacy tools and 5G configuration systems.',
         'shot': None,
+        'sources': [
+            ('Samsung Research: Security & Privacy', 'https://research.samsung.com/security-privacy'),
+        ],
         'metrics': [
             ('Chipset', 'Level security', 'bootloader and data security modules'),
             ('ML', 'Privacy tooling', 'machine-learning based data protection'),
             ('5G', 'Configuration', 'network optimisation systems'),
         ],
         'overview': [
-            'At Samsung R&D I built <b>bootloader and data security modules</b> across Samsung chipsets, and contributed to ML-based privacy tools and 5G configuration systems. Technically it was solid, low-level work at real scale.',
-            'It also taught me something I needed to learn. The corporate environment was not where I felt most alive — the work felt monotonous, and I wanted more direct impact and creative freedom. That realisation is what pushed me toward product work, and everything after it.',
+            'At Samsung R&D, I built <b>bootloader and data-security modules</b> across Samsung chipsets, with contributions to ML-based privacy tools and 5G configuration systems. This was low-level engineering where security, chipset variation, and device behavior all mattered.',
+            'It also clarified the kind of work I wanted next: closer to product decisions and the people using what I build. That shift toward broader ownership became a thread through my later roles. Samsung Research’s public <a href="https://research.samsung.com/security-privacy" target="_blank" rel="noopener noreferrer">security and privacy work</a> offers company context, but does not document my specific contributions.',
         ],
         'sections': [
-            ('What I built', [
-                ('Bootloader security', 'Secure bootloader systems across Samsung chipset architecture.'),
-                ('Data security modules', 'Security infrastructure spanning the chipset ecosystem.'),
-                ('ML-based privacy tools', 'Machine-learning tooling for data protection.'),
-                ('5G configuration systems', 'Configuration systems supporting network optimisation.'),
-            ]),
-            ('Hard problems', [
-                ('Security at the boot layer', 'Developing secure bootloaders for chipset architecture, where mistakes are unrecoverable.'),
-                ('Compliance across variants', 'Ensuring security compliance held across multiple chipset variants.'),
-                ('Privacy without friction', 'Building ML-driven data protection that did not degrade the device experience.'),
+            ('Selected contributions', [
+                ('Bootloader security', 'Built secure bootloader systems at the chipset layer.'),
+                ('Data security across chipsets', 'Developed data-security modules and accounted for differences across chipset variants.'),
+                ('ML-based privacy tools', 'Contributed to machine-learning-based data protection with care for the device experience.'),
+                ('5G configuration systems', 'Worked on configuration systems supporting network optimization.'),
             ]),
         ],
-        'takeaway': 'How large-scale enterprise engineering works — and how much it matters to find work that lines up with your values.',
+        'takeaway': 'The experience strengthened my systems foundation and helped me see that I wanted to work closer to product choices and user outcomes.',
         'stack': ['C / low-level', 'Bootloader', 'Chipset security', 'Machine learning', '5G systems'],
     },
 ]
@@ -205,8 +200,8 @@ CASES = [
 NAV = '''    <header class="topbar">
       <div class="topbar-inner">
         <div class="brand">
-          <a class="mark" href="/" aria-label="Shikhar Sahdev — home">SS</a>
-          <span class="label loc">New Delhi, India</span>
+          <a class="mark" href="/" aria-label="Shikhar Sahdev — home"><img src="/assets/img/avatar-happy.webp" alt="" width="40" height="40" /></a>
+          <span class="label loc">Bangalore, India</span>
         </div>
         <nav aria-label="Primary">
           <a href="/#work">Work</a>
@@ -227,10 +222,15 @@ NAV = '''    <header class="topbar">
 
 FOOTER = '''    <footer class="footer" id="contact">
       <div class="shell">
-        <h2>Let's build something worth using</h2>
-        <div class="footer-links">
-          <a href="mailto:shikharsahdev@gmail.com">Email me</a>
-          <a href="https://linkedin.com/in/shikharsahdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <div class="footer-contact">
+          <div class="footer-intro">
+            <img class="footer-avatar" src="/assets/img/avatar-happy.webp" alt="" width="48" height="48" />
+            <h2>Want to chat?</h2>
+          </div>
+          <div class="footer-links">
+            <a href="mailto:shikharsahdev@gmail.com">Email me</a>
+            <a href="https://linkedin.com/in/shikharsahdev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
         </div>
         <nav class="footer-nav" aria-label="Footer">
           <a href="/">Home</a>
@@ -241,7 +241,6 @@ FOOTER = '''    <footer class="footer" id="contact">
           <a href="/work/icmr-aitsc/">ICMR &amp; AITSC</a>
           <a href="/work/samsung/">Samsung R&amp;D</a>
         </nav>
-        <div class="footer-mark">SS</div>
         <p class="footer-fine">&copy; 2026 Shikhar Sahdev</p>
       </div>
     </footer>
@@ -255,6 +254,7 @@ def esc(s):
 def render(case, prev_case, next_case):
     slug, name = case['slug'], case['name']
     url = f"{SITE}/work/{slug}/"
+    image_url = case['shot'] if case['shot'] and case['shot'].startswith('http') else f"{SITE}{case['shot'] or '/assets/img/og-card.jpg'}"
 
     metrics = '\n'.join(
         f'''          <div class="metric">
@@ -267,17 +267,25 @@ def render(case, prev_case, next_case):
     if case['shot']:
         shot = f'''
         <figure class="case-shot reveal">
-          <img src="{case['shot']}?v={ASSET_V}" alt="{esc(case['shot_alt'])}" width="1600" height="898" loading="lazy" decoding="async" />
-          <figcaption>{esc(case['shot_caption'])}</figcaption>
+          <img src="{case['shot']}" alt="{esc(case['shot_alt'])}" width="{case['shot_w']}" height="{case['shot_h']}" loading="lazy" decoding="async" />
+          <figcaption>{esc(case['shot_caption'])} <a href="{case['sources'][0][1]}" target="_blank" rel="noopener noreferrer">View source</a></figcaption>
         </figure>'''
     else:
         shot = f'''
         <figure class="case-shot case-shot--mark reveal">
           <img src="{case['logo']}" alt="{esc(name)} logo" width="{case['logo_w']}" height="{case['logo_h']}" loading="lazy" decoding="async" />
-          <figcaption>Work under NDA / pre-dating public product surfaces &mdash; no shipped screenshots to show.</figcaption>
+          <figcaption>No public project screenshot available.</figcaption>
         </figure>'''
 
     overview = '\n'.join(f'          <p>{p}</p>' for p in case['overview'])
+    sources = '\n'.join(
+        f'            <a href="{url}" target="_blank" rel="noopener noreferrer">{esc(label)} <span aria-hidden="true">↗</span></a>'
+        for label, url in case.get('sources', []))
+    source_section = f'''
+        <aside class="case-sources" aria-label="Public references">
+          <span class="case-sources-label">Public references</span>
+          <div>{sources}</div>
+        </aside>''' if sources else ''
 
     blocks = []
     nav_items = ['<a href="#overview">Overview</a>']
@@ -321,13 +329,38 @@ def render(case, prev_case, next_case):
     outcome_fact = (f"            <div><dt>Outcome</dt><dd>{esc(case['dates_note'])}</dd></div>"
                     if case.get('dates_note') else '')
 
+    article_json = json.dumps({
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        'headline': f"{name} — {case['role']}",
+        'description': case['meta_desc'],
+        'url': url,
+        'inLanguage': 'en-US',
+        'datePublished': case['published'],
+        'dateModified': case['modified'],
+        'image': image_url,
+        'author': {'@type': 'Person', 'name': 'Shikhar Sahdev', 'url': SITE},
+        'publisher': {'@type': 'Person', 'name': 'Shikhar Sahdev', 'url': SITE},
+        'about': {'@type': 'Organization', 'name': name, 'url': case['org_url']},
+        'mainEntityOfPage': {'@type': 'WebPage', '@id': url},
+    }, ensure_ascii=False, indent=2)
+    breadcrumb_json = json.dumps({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': f'{SITE}/'},
+            {'@type': 'ListItem', 'position': 2, 'name': 'Work', 'item': f'{SITE}/work/'},
+            {'@type': 'ListItem', 'position': 3, 'name': name, 'item': url},
+        ],
+    }, ensure_ascii=False, indent=2)
+
     return f'''<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/assets/img/avatar-happy.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f4f3ef" />
+    <meta name="theme-color" content="#fae0c8" />
 
     <title>{esc(case['short_title'])} | Shikhar Sahdev</title>
     <meta name="description" content="{esc(case['meta_desc'])}" />
@@ -338,7 +371,7 @@ def render(case, prev_case, next_case):
     <meta property="og:url" content="{url}" />
     <meta property="og:title" content="{esc(case['short_title'])} | Shikhar Sahdev" />
     <meta property="og:description" content="{esc(case['meta_desc'])}" />
-    <meta property="og:image" content="{SITE}{case['shot'] or '/assets/img/og-card.jpg'}" />
+    <meta property="og:image" content="{image_url}" />
     <meta property="og:image:width" content="{case['shot_w'] if case['shot'] else 1200}" />
     <meta property="og:image:height" content="{case['shot_h'] if case['shot'] else 630}" />
     <meta property="og:image:alt" content="{esc(case['shot_alt']) if case['shot'] else 'Shikhar Sahdev — Product Engineer'}" />
@@ -351,49 +384,22 @@ def render(case, prev_case, next_case):
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="{esc(case['short_title'])} | Shikhar Sahdev" />
     <meta property="twitter:description" content="{esc(case['meta_desc'])}" />
-    <meta property="twitter:image" content="{SITE}{case['shot'] or '/assets/img/og-card.jpg'}" />
+    <meta property="twitter:image" content="{image_url}" />
     <meta property="twitter:site" content="@shikharsahdev" />
     <meta property="twitter:creator" content="@shikharsahdev" />
 
     <link rel="canonical" href="{url}" />
-    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="apple-touch-icon" href="/assets/img/avatar-happy.png" />
     <link rel="manifest" href="/manifest.json" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Archivo+Black&family=Big+Shoulders+Display:wght@800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="/assets/css/style.css?v={ASSET_V}" />
 
-    <script type="application/ld+json">
-    {{
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "{esc(name)} — {esc(case['role'])}",
-      "description": "{esc(case['meta_desc'])}",
-      "url": "{url}",
-      "inLanguage": "en-US",
-      "datePublished": "{case['published']}",
-      "dateModified": "{case['modified']}",
-      "image": "{SITE}{case['shot'] or '/assets/img/og-card.jpg'}",
-      "author": {{ "@type": "Person", "name": "Shikhar Sahdev", "url": "{SITE}" }},
-      "publisher": {{ "@type": "Person", "name": "Shikhar Sahdev", "url": "{SITE}" }},
-      "about": {{ "@type": "Organization", "name": "{esc(name)}", "url": "{case['org_url']}" }},
-      "mainEntityOfPage": {{ "@type": "WebPage", "@id": "{url}" }}
-    }}
-    </script>
-
-    <script type="application/ld+json">
-    {{
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {{ "@type": "ListItem", "position": 1, "name": "Home", "item": "{SITE}/" }},
-        {{ "@type": "ListItem", "position": 2, "name": "Work", "item": "{SITE}/work/" }},
-        {{ "@type": "ListItem", "position": 3, "name": "{esc(name)}", "item": "{url}" }}
-      ]
-    }}
-    </script>
+    <script type="application/ld+json">{article_json}</script>
+    <script type="application/ld+json">{breadcrumb_json}</script>
   </head>
 
   <body>
@@ -449,6 +455,8 @@ def render(case, prev_case, next_case):
           </div>
         </section>
 
+{source_section}
+
 {sections}
 
         <section class="case-block" id="takeaway">
@@ -467,6 +475,7 @@ def render(case, prev_case, next_case):
     </main>
 
 {FOOTER}
+    <script src="/assets/js/scroll-leaf.js?v=1" defer></script>
     <script src="/assets/js/case.js?v={ASSET_V}" defer></script>
   </body>
 </html>

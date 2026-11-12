@@ -1,23 +1,18 @@
 {
   "short_name": "Shikhar Sahdev",
   "name": "Shikhar Sahdev — Founding Engineer & Product Engineer",
-  "description": "Portfolio of Shikhar Sahdev, a product engineer in New Delhi. Founding engineer at Goldcast — built the events platform from zero to $20M ARR and an acquisition by Cvent in December 2025.",
+  "description": "Portfolio of Shikhar Sahdev, a Bangalore product engineer working across web products, real-time event systems and frontend architecture.",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "/assets/img/avatar-happy.png",
+      "sizes": "512x468",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#f4f3ef",
-  "background_color": "#f4f3ef",
+  "theme_color": "#fae0c8",
+  "background_color": "#fae0c8",
   "categories": [
     "portfolio",
     "developer",
