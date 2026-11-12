@@ -21,7 +21,7 @@ CASES = [
 NAV = '''    <header class="topbar">
       <div class="topbar-inner">
         <div class="brand">
-          <a class="mark" href="/" aria-label="Shikhar Sahdev — home"><img src="/assets/img/avatar-happy.webp" alt="" width="40" height="40" /></a>
+          <a class="mark" href="/" aria-label="Shikhar Sahdev — home"><img src="/assets/img/avatar-hero-face.webp" alt="" width="40" height="40" /></a>
           <span class="label loc">Bangalore, India</span>
         </div>
         <nav aria-label="Primary">
@@ -45,7 +45,7 @@ FOOTER = '''    <footer class="footer" id="contact">
       <div class="shell">
         <div class="footer-contact">
           <div class="footer-intro">
-            <img class="footer-avatar" src="/assets/img/avatar-happy.webp" alt="" width="48" height="48" />
+            <img class="footer-avatar" src="/assets/img/avatar-hero-face.webp" alt="" width="48" height="48" />
             <h2>Want to chat?</h2>
           </div>
           <div class="footer-links">
@@ -68,10 +68,10 @@ FOOTER = '''    <footer class="footer" id="contact">
 '''
 
 HEAD_COMMON = f'''    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/assets/img/avatar-happy.png" />
+    <link rel="icon" type="image/png" href="/assets/img/avatar-hero-face.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#fae0c8" />
-    <link rel="apple-touch-icon" href="/assets/img/avatar-happy.png" />
+    <link rel="apple-touch-icon" href="/assets/img/avatar-hero-face.png" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
