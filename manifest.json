@@ -4,8 +4,8 @@
   "description": "Portfolio of Shikhar Sahdev, a Bangalore product engineer working across web products, real-time event systems and frontend architecture.",
   "icons": [
     {
-      "src": "/assets/img/avatar-happy.png",
-      "sizes": "512x468",
+      "src": "/assets/img/avatar-hero-face.png",
+      "sizes": "260x260",
       "type": "image/png"
     }
   ],
