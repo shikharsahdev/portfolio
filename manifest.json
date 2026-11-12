@@ -5,7 +5,7 @@
   "icons": [
     {
       "src": "/assets/img/avatar-hero-face.png",
-      "sizes": "260x260",
+      "sizes": "320x320",
       "type": "image/png"
     }
   ],
