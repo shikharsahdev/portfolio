@@ -475,7 +475,7 @@ def render(case, prev_case, next_case):
     </main>
 
 {FOOTER}
-    <script src="/assets/js/scroll-leaf.js?v=1" defer></script>
+    <script src="/assets/js/scroll-leaf.js?v=4" defer></script>
     <script src="/assets/js/case.js?v={ASSET_V}" defer></script>
   </body>
 </html>

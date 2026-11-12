@@ -182,7 +182,7 @@ def work_index():
         </div>
       </section>
     </main>
-{FOOTER}    <script src="/assets/js/scroll-leaf.js?v=1" defer></script>
+{FOOTER}    <script src="/assets/js/scroll-leaf.js?v=4" defer></script>
   </body>
 </html>
 '''
@@ -214,7 +214,7 @@ def not_found():
         </div>
       </section>
     </main>
-{FOOTER}    <script src="/assets/js/scroll-leaf.js?v=1" defer></script>
+{FOOTER}    <script src="/assets/js/scroll-leaf.js?v=4" defer></script>
   </body>
 </html>
 '''
