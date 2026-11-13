@@ -396,7 +396,7 @@ def render(case, prev_case, next_case):
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="/assets/css/style.css?v={ASSET_V}" />
+    <link rel="stylesheet" href="/assets/css/style.css?v=57" />
 
     <script type="application/ld+json">{article_json}</script>
     <script type="application/ld+json">{breadcrumb_json}</script>
@@ -475,7 +475,7 @@ def render(case, prev_case, next_case):
     </main>
 
 {FOOTER}
-    <script src="/assets/js/scroll-leaf.js?v=4" defer></script>
+    <script src="/assets/js/scroll-leaf.js?v=5" defer></script>
     <script src="/assets/js/case.js?v={ASSET_V}" defer></script>
   </body>
 </html>

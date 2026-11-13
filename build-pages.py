@@ -76,7 +76,7 @@ HEAD_COMMON = f'''    <meta charset="utf-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/assets/css/style.css?v={V}" />
+    <link rel="stylesheet" href="/assets/css/style.css?v=57" />
 '''
 
 
@@ -182,7 +182,7 @@ def work_index():
         </div>
       </section>
     </main>
-{FOOTER}    <script src="/assets/js/scroll-leaf.js?v=4" defer></script>
+{FOOTER}    <script src="/assets/js/scroll-leaf.js?v=5" defer></script>
   </body>
 </html>
 '''
@@ -214,7 +214,7 @@ def not_found():
         </div>
       </section>
     </main>
-{FOOTER}    <script src="/assets/js/scroll-leaf.js?v=4" defer></script>
+{FOOTER}    <script src="/assets/js/scroll-leaf.js?v=5" defer></script>
   </body>
 </html>
 '''
