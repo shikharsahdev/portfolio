@@ -402,16 +402,6 @@ a.mark:hover { transform:scale(1.05); }
   color: var(--ink-soft);
 }
 
-.botanical-mark {
-  display: inline-block;
-  width: 1.55rem;
-  height: 1.9rem;
-  margin-left: .35rem;
-  vertical-align: middle;
-  color: var(--accent);
-  opacity: .58;
-}
-
 /* Case blocks -------------------------------------------------------------- */
 
 .case {
@@ -1471,7 +1461,7 @@ a.mark:hover { transform:scale(1.05); }
   .hero-scene { transition:none; }
 }
 
-/* Light botanical leaves drift past on scroll or briefly scatter from clicks. */
+/* Leaves drift through the viewport or briefly scatter from clicks. */
 .leaf-particle {
   position:fixed;
   z-index:8;
@@ -1500,14 +1490,8 @@ a.mark:hover { transform:scale(1.05); }
   stroke-linejoin:round;
 }
 .leaf-petiole { stroke:rgba(69,91,51,.76); stroke-width:1.7; }
-.leaf-particle--fall { animation:leaf-fall var(--leaf-duration,3.5s) cubic-bezier(.32,.02,.72,.98) both; }
+.leaf-particle--fall { top:0; left:0; transform-origin:50% 50%; }
 .leaf-particle--burst { animation:leaf-burst var(--leaf-duration,.95s) cubic-bezier(.14,.72,.24,1) both; }
-@keyframes leaf-fall {
-  0% { opacity:0; transform:translate3d(0,-1vh,0) rotate(var(--leaf-start,-24deg)) scale(.9); }
-  14% { opacity:.74; }
-  72% { opacity:.58; }
-  100% { opacity:0; transform:translate3d(var(--leaf-drift,8vw),108vh,0) rotate(var(--leaf-spin,190deg)) scale(.88); }
-}
 @keyframes leaf-burst {
   0% { opacity:0; transform:translate3d(0,0,0) rotate(var(--leaf-start,-20deg)) scale(.4); }
   18% { opacity:.82; }
