@@ -367,6 +367,19 @@ a.mark:hover { transform:scale(1.05); }
 }
 .next-page:hover .next-page-title::after { transform: translateX(0.35rem); }
 
+.next-page--visual {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(5.5rem, 17%, 10rem);
+  gap: clamp(0.75rem, 4vw, 3rem);
+  align-items: center;
+}
+.next-page--visual img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--hairline);
+}
+
 .next-page-note {
   display: block;
   margin-top: 0.9rem;
@@ -402,7 +415,13 @@ a.mark:hover { transform:scale(1.05); }
   color: var(--ink-soft);
 }
 
-/* Case blocks -------------------------------------------------------------- */
+/* Selected work ------------------------------------------------------------ */
+
+.case-listing {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(1.5rem, 4vw, 3rem);
+}
 
 .case {
   border-bottom: 1px solid var(--hairline);
@@ -411,25 +430,65 @@ a.mark:hover { transform:scale(1.05); }
 .case-btn {
   display: block;
   width: 100%;
-  text-align: left;
-  padding: 2.75rem 0;
-  transition: background 0.18s;
+  padding: 2rem 0;
 }
-.case-btn:hover { background: var(--paper-warm); }
 
 .case-grid {
   display: grid;
-  grid-template-columns: 5.5rem minmax(0, 1fr) auto;
-  gap: 2.5rem;
+  gap: 1.1rem;
+}
+
+.case-art {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--paper-warm);
+  border-radius: 12px;
+  border: 1px solid rgb(47 51 44 / 12%);
+}
+
+.case-art img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  transition: transform 0.25s ease-out;
+}
+
+.case-art--goldcast {
+  background: #ff5721;
+}
+.case-art--goldcast-live {
+  background: radial-gradient(ellipse at 75% 20%, #e9dbfa, #e4cfee 47%, #cdb7e0 100%);
+  padding: clamp(0.3rem, 1vw, 0.8rem);
+}
+.case-art--goldcast-live img { object-fit: contain; }
+.case-art--shipsy img { object-position: center 45%; }
+.case-art--icmr-aitsc img { object-position: center 58%; }
+.case-btn:hover .case-art img,
+.case-btn:focus-visible .case-art img { transform: scale(1.025); }
+
+.case-meta {
+  display: flex;
   align-items: baseline;
+  gap: 0.7rem;
+  margin-bottom: 0.55rem;
+}
+.case-meta::after {
+  content: '';
+  height: 1px;
+  align-self: center;
+  background: var(--hairline);
+  flex: 1;
 }
 
 .case-no {
   font-family: 'Space Grotesk', 'DM Sans', sans-serif;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.05rem;
   line-height: 1;
-  color: var(--ink-faint);
+  color: var(--accent-deep);
   transition: color 0.18s;
 }
 .case-btn:hover .case-no { color: var(--accent); }
@@ -458,26 +517,12 @@ a.mark:hover { transform:scale(1.05); }
 }
 .case-brief b { font-weight: 600; color: var(--accent); }
 
-.case-side {
-  text-align: right;
-  white-space: nowrap;
-}
-
 .case-dates {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-soft);
-}
-
-.case-tag {
-  margin-top: 0.5rem;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
 }
 
 .case-more {
@@ -576,9 +621,16 @@ a.mark:hover { transform:scale(1.05); }
 
 /* Journey ------------------------------------------------------------------ */
 
+.journey-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  align-items: start;
+  gap: 1.75rem clamp(2rem, 6vw, 5rem);
+  padding-top: 2.5rem;
+}
+
 .prose {
   max-width: 44rem;
-  padding: 3rem 0 0;
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
@@ -587,13 +639,30 @@ a.mark:hover { transform:scale(1.05); }
 }
 .prose strong { font-weight: 600; color: var(--ink); }
 .prose .accent { color: var(--accent); font-weight: 600; }
+.journey-later { grid-column: 1; }
+
+.journey-figure { margin: 0; }
+.journey-figure--portrait { grid-column: 2; grid-row: 1 / span 2; }
+.journey-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--hairline);
+}
+.journey-figure figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 2.5rem;
-  padding: 3.5rem 0 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem clamp(1.5rem, 4vw, 3rem);
+  padding: 2rem 0 0;
 }
+
+.project { border-top: 1px solid var(--hairline); padding-top: 1rem; }
 
 .project h3 {
   font-family: 'Space Grotesk', 'DM Sans', sans-serif;
@@ -782,14 +851,10 @@ a.mark:hover { transform:scale(1.05); }
   .hero-lede { font-size: clamp(0.9rem, 1.9vh, 1.05rem); }
 
   .section { padding-top: 4.5rem; }
-  .case-btn { padding: 2rem 0; }
-
-  .case-grid {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-  .case-side { text-align: left; }
-  .case-no { font-size: 1.1rem; }
+  .case-btn { padding: 1.5rem 0; }
+  .case-listing, .journey-story, .projects { grid-template-columns: minmax(0, 1fr); }
+  .journey-figure--portrait { grid-column: auto; grid-row: auto; order: -1; }
+  .journey-story { padding-top: 1.75rem; }
 
   .footer { margin-top: 4.5rem; padding: 2.75rem 0 1.75rem; }
   .footer-contact { align-items:flex-start; flex-direction:column; gap:1.25rem; padding-bottom:1.75rem; }
@@ -811,6 +876,9 @@ a.mark:hover { transform:scale(1.05); }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .case-art img { transition: none; }
+  .case-btn:hover .case-art img,
+  .case-btn:focus-visible .case-art img { transform: none; }
   html { scroll-behavior: auto; }
   * { transition-duration: 0.01ms !important; }
 }
