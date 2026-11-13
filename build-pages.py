@@ -8,14 +8,18 @@ SITE = 'https://shikhar.sah.dev'
 V = '28'
 
 CASES = [
-    ('01', 'Goldcast', 'goldcast', '/gc.svg', 'Founding Engineer · Product & Engineering',
-     'Aug 2020 — Dec 2025', 'Helped shape Goldcast’s Events app, then led it for 2–3 years: its attendee experience, WebRTC video, and Backstage workflow for speakers and producers.'),
-    ('02', 'Shipsy', 'shipsy', '/shipsy.webp', 'Full-Stack Developer',
-     'Oct 2019 — Aug 2020', 'Built customer-focused logistics features across DTDC pricing, returns and settlements, and configurable last-mile tracking for a pan-India Domino’s contract.'),
-    ('03', 'ICMR & AITSC', 'icmr-aitsc', '/aiimsxicmr.webp', 'Software Engineer, Research Collaboration',
-     '2016 — 2018', 'Built and deployed a digital trauma-patient enrollment system across five government hospitals, including on-site infrastructure and staff training.'),
-    ('04', 'Samsung R&D', 'samsung', '/samsung.svg', 'Software Engineer, Security Systems',
-     '2018 — 2019', 'Worked on bootloader and data-security modules across Samsung chipsets, with contributions to privacy tooling and 5G configuration systems.'),
+    ('01', 'Goldcast', 'goldcast', 'Founding Engineer · Product & Engineering',
+     'Aug 2020 — Dec 2025', 'Helped shape Goldcast’s Events app, then led it for 2–3 years: its attendee experience, WebRTC video, and Backstage workflow for speakers and producers.',
+     'goldcast-branded-events.webp', 1272, 786, 'Goldcast event branding across a registration page and live stage'),
+    ('02', 'Shipsy', 'shipsy', 'Full-Stack Developer',
+     'Oct 2019 — Aug 2020', 'Built customer-focused logistics features across DTDC pricing, returns and settlements, and configurable last-mile tracking for a pan-India Domino’s contract.',
+     'shipsy-parcel-delivery.webp', 1200, 600, 'A courier scans a parcel while handing it to a customer'),
+    ('03', 'ICMR & AITSC', 'icmr-aitsc', 'Software Engineer, Research Collaboration',
+     '2016 — 2018', 'Built and deployed a digital trauma-patient enrollment system across five government hospitals, including on-site infrastructure and staff training.',
+     'aiims-trauma-centre.webp', 1440, 871, 'Exterior of the Jai Prakash Narayan Apex Trauma Centre at AIIMS New Delhi'),
+    ('04', 'Samsung R&D', 'samsung', 'Software Engineer, Security Systems',
+     '2018 — 2019', 'Worked on bootloader and data-security modules across Samsung chipsets, with contributions to privacy tooling and 5G configuration systems.',
+     'samsung-exynos-board.webp', 1440, 810, 'Close-up of a Samsung Exynos chip on the blue circuit board of a Galaxy S III'),
 ]
 
 NAV = '''    <header class="topbar">
@@ -76,26 +80,26 @@ HEAD_COMMON = f'''    <meta charset="utf-8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/assets/css/style.css?v=57" />
+    <link rel="stylesheet" href="/assets/css/style.css?v=59" />
 '''
 
 
 def work_index():
     rows = []
     items = []
-    for i, (no, name, slug, logo, role, dates, blurb) in enumerate(CASES, 1):
+    for i, (no, name, slug, role, dates, blurb, image, width, height, alt) in enumerate(CASES, 1):
         rows.append(f'''          <article class="case">
             <a class="case-btn" href="/work/{slug}/">
               <div class="case-grid">
-                <span class="case-no">{no}</span>
-                <div>
-                  <h3 class="case-title">{name}</h3>
-                  <p class="case-role">{role}</p>
+                <div class="case-art case-art--{slug}">
+                  <img src="/assets/img/{image}" width="{width}" height="{height}" alt="{alt}" loading="lazy" decoding="async" />
+                </div>
+                <div class="case-copy">
+                  <div class="case-meta"><span class="case-no" aria-hidden="true">{no}</span><span class="case-dates">{dates}</span></div>
+                  <h3 class="case-title">{name.replace('&', '&amp;')}</h3>
+                  <p class="case-role">{role.replace('&', '&amp;')}</p>
                   <p class="case-brief">{blurb}</p>
                   <span class="case-more">View case study</span>
-                </div>
-                <div class="case-side">
-                  <div class="case-dates">{dates}</div>
                 </div>
               </div>
             </a>
@@ -172,12 +176,17 @@ def work_index():
             <p>Product thinking with engineering depth: leading an events app, building logistics products, digitizing hospital workflows, and shipping secure systems.</p>
           </div>
 
-{chr(10).join(rows)}
+          <div class="case-listing">
+{chr(10).join('  ' + line for row in rows for line in row.splitlines())}
+          </div>
 
-          <a class="next-page" href="/about/">
-            <span class="next-page-label">More about me</span>
-            <span class="next-page-title">Background &amp; Journey</span>
-            <span class="next-page-note">How curiosity at 12 became a decade of product engineering.</span>
+          <a class="next-page next-page--visual" href="/about/">
+            <div>
+              <span class="next-page-label">More about me</span>
+              <span class="next-page-title">Background &amp; Journey</span>
+              <span class="next-page-note">How curiosity at 12 became a decade of product engineering.</span>
+            </div>
+            <img src="/assets/img/shikhar-portrait.webp" alt="" width="320" height="320" loading="lazy" decoding="async" />
           </a>
         </div>
       </section>

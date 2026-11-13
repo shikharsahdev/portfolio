@@ -32,9 +32,10 @@ CASES = [
         'org_url': 'https://goldcast.io',
         'summary': 'I helped shape Goldcast’s Events app, then led it for 2–3 years as it became the company’s core product. My work spanned the attendee experience, WebRTC live video, and introducing Backstage for speakers and producers.',
         'meta_desc': 'Shikhar Sahdev helped shape Goldcast’s Events app and led it for 2–3 years, introducing Backstage and owning WebRTC live audio/video.',
-        'shot': 'https://www.goldcast.io/images/platform/seamless_speaker_experience.webp',
-        'shot_alt': 'Goldcast Events product showing speaker layout controls alongside the private Backstage area for event speakers',
-        'shot_caption': 'Goldcast Events: speaker layout controls and Backstage in one view.',
+        'shot': '/assets/img/goldcast-event-experience.webp',
+        'shot_alt': 'Two speakers on a branded blue Goldcast stage, with chat and an event registration page behind it',
+        'shot_caption': 'Goldcast Events: a branded live stage with attendee chat, shown alongside an event registration page.',
+        'shot_source': 'https://www.goldcast.io/platform/events',
         'sources': [
             ('Goldcast Events platform', 'https://www.goldcast.io/platform'),
             ('MarDreamin’ customer story', 'https://www.goldcast.io/customer-stories/mardreamin'),
@@ -70,7 +71,7 @@ CASES = [
     {
         'slug': 'shipsy',
         'short_title': 'Shipsy — Full-Stack Developer',
-        'shot_w': 1920, 'shot_h': 1080,
+        'shot_w': 1440, 'shot_h': 960,
         'logo_w': 64, 'logo_h': 64,
         'published': '2024-01-15', 'modified': '2026-11-12',
         'no': '02',
@@ -84,9 +85,10 @@ CASES = [
         'org_url': 'https://shipsy.io',
         'summary': 'My first startup: I worked across customer-critical logistics products, built a returns system from scratch, and helped ship contactless delivery in two weeks during COVID.',
         'meta_desc': 'At his first startup, Shikhar Sahdev worked across customer-critical logistics products, built a returns system from scratch, and helped deliver contactless delivery in two weeks during COVID.',
-        'shot': 'https://shipsy.io/wp-content/uploads/2023/03/Hero4_SIM-based-Tracking.png',
-        'shot_alt': 'Shipsy last-mile delivery tracking map showing delivery locations in southern India',
-        'shot_caption': 'Shipsy’s SIM-based last-mile tracking feature, shown in a company product update.',
+        'shot': '/assets/img/shipsy-contactless-delivery.webp',
+        'shot_alt': 'A delivery worker and a customer standing apart with a parcel on the ground between them',
+        'shot_caption': 'Photo from Shipsy’s 2020 article on contactless delivery, the workflow our team helped roll out during COVID.',
+        'shot_source': 'https://shipsy.io/blogs/how-contactless-delivery-is-helping-businesses-to-stand-strong-during-covid-19/',
         'sources': [
             ('Shipsy SIM-based tracking update', 'https://shipsy.io/product-updates/have-better-visibility-over-last-mile-deliveries-through-sim-based-tracking/'),
             ('DTDC Shipsy case study', 'https://shipsy.io/casestudies/dtdc-digitizes-97-last-mile-transactions-and-soars-customer-experiences/'),
@@ -115,7 +117,7 @@ CASES = [
     {
         'slug': 'icmr-aitsc',
         'short_title': 'ICMR & AITSC — Software Engineer',
-        'shot_w': 647, 'shot_h': 300,
+        'shot_w': 1440, 'shot_h': 871,
         'logo_w': 647, 'logo_h': 300,
         'published': '2024-01-15', 'modified': '2026-11-12',
         'no': '03',
@@ -129,7 +131,11 @@ CASES = [
         'org_url': 'https://icmr.gov.in',
         'summary': 'Built a digital trauma-patient enrollment system end to end, then deployed it and trained staff across five government hospitals.',
         'meta_desc': 'Shikhar Sahdev built and deployed a digital trauma-patient enrollment system across five Indian government hospitals, including on-site servers and staff training.',
-        'shot': None,
+        'shot': '/assets/img/aiims-trauma-centre.webp',
+        'shot_alt': 'Exterior of the Jai Prakash Narayan Apex Trauma Centre at AIIMS New Delhi',
+        'shot_caption': 'Jai Prakash Narayan Apex Trauma Centre, AIIMS New Delhi. Photo by Vishnoi M, resized.',
+        'shot_source': 'https://commons.wikimedia.org/wiki/File:JPNA_Trauma_Center.jpg',
+        'shot_license': ('CC BY-SA 4.0', 'https://creativecommons.org/licenses/by-sa/4.0/'),
         'sources': [
             ('ICMR Annual Report 2017–18', 'https://www.icmr.gov.in/icmrobject/custom_data/pdf/annual-reports/ICMR_AR_English_2017-18_final.pdf'),
             ('AIIMS research paper on trauma registry work', 'https://www.aiims.edu/images/pdf/library/Article-August19-22-7-20.pdf'),
@@ -157,7 +163,7 @@ CASES = [
     {
         'slug': 'samsung',
         'short_title': 'Samsung R&D — Security Engineer',
-        'shot_w': 240, 'shot_h': 80,
+        'shot_w': 1440, 'shot_h': 810,
         'logo_w': 240, 'logo_h': 80,
         'published': '2024-01-15', 'modified': '2026-11-12',
         'no': '04',
@@ -171,7 +177,11 @@ CASES = [
         'org_url': 'https://research.samsung.com',
         'summary': 'Built bootloader and data security modules across Samsung chipsets, contributing to ML-based privacy tools and 5G configuration systems.',
         'meta_desc': 'Shikhar Sahdev’s work at Samsung R&D on bootloader and data security modules across chipsets, ML-based privacy tools and 5G configuration systems.',
-        'shot': None,
+        'shot': '/assets/img/samsung-exynos-board.webp',
+        'shot_alt': 'Close-up of a Samsung Exynos chip on the blue circuit board of a Galaxy S III',
+        'shot_caption': 'An Exynos chip on a Galaxy S III circuit board, shown as hardware context. Photo by Köf3, cropped and resized.',
+        'shot_source': 'https://commons.wikimedia.org/wiki/File:Samsung-Exynos-4412-Quad_SoC_used_in_I9300.jpg',
+        'shot_license': ('CC BY-SA 3.0', 'https://creativecommons.org/licenses/by-sa/3.0/'),
         'sources': [
             ('Samsung Research: Security & Privacy', 'https://research.samsung.com/security-privacy'),
         ],
@@ -265,10 +275,15 @@ def render(case, prev_case, next_case):
 
     shot = ''
     if case['shot']:
+        shot_source = case.get('shot_source') or case['sources'][0][1]
+        license_link = ''
+        if case.get('shot_license'):
+            label, href = case['shot_license']
+            license_link = f' · <a href="{href}">{esc(label)}</a>'
         shot = f'''
         <figure class="case-shot reveal">
           <img src="{case['shot']}" alt="{esc(case['shot_alt'])}" width="{case['shot_w']}" height="{case['shot_h']}" loading="lazy" decoding="async" />
-          <figcaption>{esc(case['shot_caption'])} <a href="{case['sources'][0][1]}" target="_blank" rel="noopener noreferrer">View source</a></figcaption>
+          <figcaption>{esc(case['shot_caption'])} <a href="{shot_source}" target="_blank" rel="noopener noreferrer">View image source</a>{license_link}</figcaption>
         </figure>'''
     else:
         shot = f'''
@@ -396,7 +411,7 @@ def render(case, prev_case, next_case):
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=57" />
+    <link rel="stylesheet" href="/assets/css/style.css?v=59" />
 
     <script type="application/ld+json">{article_json}</script>
     <script type="application/ld+json">{breadcrumb_json}</script>
