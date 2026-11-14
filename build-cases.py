@@ -264,7 +264,7 @@ def esc(s):
 def render(case, prev_case, next_case):
     slug, name = case['slug'], case['name']
     url = f"{SITE}/work/{slug}/"
-    image_url = case['shot'] if case['shot'] and case['shot'].startswith('http') else f"{SITE}{case['shot'] or '/assets/img/og-card.jpg'}"
+    image_url = case['shot'] if case['shot'] and case['shot'].startswith('http') else f"{SITE}{case['shot'] or '/assets/img/portfolio-share.jpg'}"
 
     metrics = '\n'.join(
         f'''          <div class="metric">
@@ -389,7 +389,7 @@ def render(case, prev_case, next_case):
     <meta property="og:image" content="{image_url}" />
     <meta property="og:image:width" content="{case['shot_w'] if case['shot'] else 1200}" />
     <meta property="og:image:height" content="{case['shot_h'] if case['shot'] else 630}" />
-    <meta property="og:image:alt" content="{esc(case['shot_alt']) if case['shot'] else 'Shikhar Sahdev — Product Engineer'}" />
+    <meta property="og:image:alt" content="{esc(case['shot_alt']) if case['shot'] else 'Shikhar Sahdev, Product Engineer, illustrated at a laptop with an acoustic guitar beside him'}" />
     <meta property="article:published_time" content="{case['published']}" />
     <meta property="article:modified_time" content="{case['modified']}" />
     <meta property="article:author" content="Shikhar Sahdev" />
