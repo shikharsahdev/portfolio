@@ -120,19 +120,19 @@ def work_index():
     <meta property="og:url" content="{SITE}/work/" />
     <meta property="og:title" content="Work — Case Studies | Shikhar Sahdev" />
     <meta property="og:description" content="Explore product engineering work by Shikhar Sahdev: leading Goldcast’s Events app, building logistics products at Shipsy, and shipping digital health and security systems." />
-    <meta property="og:image" content="{SITE}/assets/img/portfolio-share.jpg" />
+    <meta property="og:image" content="{SITE}/assets/img/portfolio-share-v2.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Shikhar Sahdev, Product Engineer, illustrated at a laptop with an acoustic guitar beside him" />
+    <meta property="og:image:alt" content="Shikhar Sahdev. I build products from idea to launch. Illustration of Shikhar at a laptop beside an acoustic guitar." />
     <meta property="og:site_name" content="Shikhar Sahdev Portfolio" />
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@shikharsahdev" />
     <meta name="twitter:title" content="Work — Case Studies | Shikhar Sahdev" />
     <meta name="twitter:description" content="Explore Shikhar Sahdev’s work leading products and building across real-time events, logistics, digital health and security." />
-    <meta name="twitter:image" content="{SITE}/assets/img/portfolio-share.jpg" />
-    <meta name="twitter:image:alt" content="Shikhar Sahdev, Product Engineer, illustrated at a laptop with an acoustic guitar beside him" />
+    <meta name="twitter:image" content="{SITE}/assets/img/portfolio-share-v2.jpg" />
+    <meta name="twitter:image:alt" content="Shikhar Sahdev. I build products from idea to launch. Illustration of Shikhar at a laptop beside an acoustic guitar." />
 
     <script type="application/ld+json">
     {{
